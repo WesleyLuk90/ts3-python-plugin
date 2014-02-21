@@ -49,6 +49,8 @@ class _CallbackCaller:
 
 TS3Module.register_client_event_handler(_CallbackCaller())
 
+import string
+
 class _CustomWriter:
 	base = None
 
@@ -58,9 +60,11 @@ class _CustomWriter:
 	def write(self, s):
 		try:
 			self.base.write(s)
-			s = s.rstrip("\n")
+			s = s.rstrip(string.whitespace)
 			if type(s) is unicode:
 				s = s.encode('utf-8', 'replace')
+			if s == "":
+				return
 			TS3Functions.printMessageToCurrentTab(s)
 		except:
 			pass # Ignore all errors so that we don't get stuck in a loop
