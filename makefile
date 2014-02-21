@@ -41,6 +41,10 @@ clean:
 	rm -rf $(BUILDDIR)
 	rm -rf $(OBJDIR)
 
-install:
-	cp $(OUTPUT) $(INSTALL_DIR)
+install: install_scripts install_plugin
+
+install_scripts:
 	cp -r $(PYTHON_FOLDER) $(INSTALL_DIR)
+
+install_plugin:
+	cp $(OUTPUT) $(INSTALL_DIR)
