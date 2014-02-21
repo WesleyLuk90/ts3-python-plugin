@@ -31,1039 +31,1039 @@ class Connection:
 	def getClientLibVersion(self, **kwargs):
 		# TS3Functions.getClientLibVersion()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientLibVersion()
+		return TS3Functions.getClientLibVersion()
 
 	def getClientLibVersionNumber(self, **kwargs):
 		# TS3Functions.getClientLibVersionNumber()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientLibVersionNumber()
+		return TS3Functions.getClientLibVersionNumber()
 
 	def spawnNewServerConnectionHandler(self, **kwargs):
 		# TS3Functions.spawnNewServerConnectionHandler(port)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.spawnNewServerConnectionHandler(kwargs['port'])
+		return TS3Functions.spawnNewServerConnectionHandler(kwargs['port'])
 
 	def destroyServerConnectionHandler(self, **kwargs):
 		# TS3Functions.destroyServerConnectionHandler(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.destroyServerConnectionHandler(self.get_server_connection_id(**kwargs))
+		return TS3Functions.destroyServerConnectionHandler(self.get_server_connection_id(**kwargs))
 
 	def getErrorMessage(self, **kwargs):
 		# TS3Functions.getErrorMessage(errorCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getErrorMessage(kwargs['errorCode'])
+		return TS3Functions.getErrorMessage(kwargs['errorCode'])
 
 	def freeMemory(self, **kwargs):
 		# TS3Functions.freeMemory()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.freeMemory()
+		return TS3Functions.freeMemory()
 
 	def logMessage(self, **kwargs):
 		# TS3Functions.logMessage(logMessage, severity, channel, logID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.logMessage(kwargs['logMessage'], kwargs['severity'], kwargs['channel'], kwargs['logID'])
+		return TS3Functions.logMessage(kwargs['logMessage'], kwargs['severity'], kwargs['channel'], kwargs['logID'])
 
 	def getPlaybackDeviceList(self, **kwargs):
 		# TS3Functions.getPlaybackDeviceList(modeID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPlaybackDeviceList(kwargs['modeID'])
+		return TS3Functions.getPlaybackDeviceList(kwargs['modeID'])
 
 	def getPlaybackModeList(self, **kwargs):
 		# TS3Functions.getPlaybackModeList()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPlaybackModeList()
+		return TS3Functions.getPlaybackModeList()
 
 	def getCaptureDeviceList(self, **kwargs):
 		# TS3Functions.getCaptureDeviceList(modeID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCaptureDeviceList(kwargs['modeID'])
+		return TS3Functions.getCaptureDeviceList(kwargs['modeID'])
 
 	def getCaptureModeList(self, **kwargs):
 		# TS3Functions.getCaptureModeList()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCaptureModeList()
+		return TS3Functions.getCaptureModeList()
 
 	def getDefaultPlaybackDevice(self, **kwargs):
 		# TS3Functions.getDefaultPlaybackDevice(modeID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getDefaultPlaybackDevice(kwargs['modeID'])
+		return TS3Functions.getDefaultPlaybackDevice(kwargs['modeID'])
 
 	def getDefaultPlayBackMode(self, **kwargs):
 		# TS3Functions.getDefaultPlayBackMode()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getDefaultPlayBackMode()
+		return TS3Functions.getDefaultPlayBackMode()
 
 	def getDefaultCaptureDevice(self, **kwargs):
 		# TS3Functions.getDefaultCaptureDevice(modeID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getDefaultCaptureDevice(kwargs['modeID'])
+		return TS3Functions.getDefaultCaptureDevice(kwargs['modeID'])
 
 	def getDefaultCaptureMode(self, **kwargs):
 		# TS3Functions.getDefaultCaptureMode()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getDefaultCaptureMode()
+		return TS3Functions.getDefaultCaptureMode()
 
 	def openPlaybackDevice(self, **kwargs):
 		# TS3Functions.openPlaybackDevice(serverConnectionHandlerID, modeID, playbackDevice)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.openPlaybackDevice(self.get_server_connection_id(**kwargs), kwargs['modeID'], kwargs['playbackDevice'])
+		return TS3Functions.openPlaybackDevice(self.get_server_connection_id(**kwargs), kwargs['modeID'], kwargs['playbackDevice'])
 
 	def openCaptureDevice(self, **kwargs):
 		# TS3Functions.openCaptureDevice(serverConnectionHandlerID, modeID, captureDevice)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.openCaptureDevice(self.get_server_connection_id(**kwargs), kwargs['modeID'], kwargs['captureDevice'])
+		return TS3Functions.openCaptureDevice(self.get_server_connection_id(**kwargs), kwargs['modeID'], kwargs['captureDevice'])
 
 	def getCurrentPlaybackDeviceName(self, **kwargs):
 		# TS3Functions.getCurrentPlaybackDeviceName(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentPlaybackDeviceName(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getCurrentPlaybackDeviceName(self.get_server_connection_id(**kwargs))
 
 	def getCurrentPlayBackMode(self, **kwargs):
 		# TS3Functions.getCurrentPlayBackMode(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentPlayBackMode(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getCurrentPlayBackMode(self.get_server_connection_id(**kwargs))
 
 	def getCurrentCaptureDeviceName(self, **kwargs):
 		# TS3Functions.getCurrentCaptureDeviceName(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentCaptureDeviceName(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getCurrentCaptureDeviceName(self.get_server_connection_id(**kwargs))
 
 	def getCurrentCaptureMode(self, **kwargs):
 		# TS3Functions.getCurrentCaptureMode(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentCaptureMode(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getCurrentCaptureMode(self.get_server_connection_id(**kwargs))
 
 	def initiateGracefulPlaybackShutdown(self, **kwargs):
 		# TS3Functions.initiateGracefulPlaybackShutdown(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.initiateGracefulPlaybackShutdown(self.get_server_connection_id(**kwargs))
+		return TS3Functions.initiateGracefulPlaybackShutdown(self.get_server_connection_id(**kwargs))
 
 	def closePlaybackDevice(self, **kwargs):
 		# TS3Functions.closePlaybackDevice(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.closePlaybackDevice(self.get_server_connection_id(**kwargs))
+		return TS3Functions.closePlaybackDevice(self.get_server_connection_id(**kwargs))
 
 	def closeCaptureDevice(self, **kwargs):
 		# TS3Functions.closeCaptureDevice(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.closeCaptureDevice(self.get_server_connection_id(**kwargs))
+		return TS3Functions.closeCaptureDevice(self.get_server_connection_id(**kwargs))
 
 	def activateCaptureDevice(self, **kwargs):
 		# TS3Functions.activateCaptureDevice(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.activateCaptureDevice(self.get_server_connection_id(**kwargs))
+		return TS3Functions.activateCaptureDevice(self.get_server_connection_id(**kwargs))
 
 	def playWaveFileHandle(self, **kwargs):
 		# TS3Functions.playWaveFileHandle(serverConnectionHandlerID, path, loop)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.playWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['path'], kwargs['loop'])
+		return TS3Functions.playWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['path'], kwargs['loop'])
 
 	def pauseWaveFileHandle(self, **kwargs):
 		# TS3Functions.pauseWaveFileHandle(serverConnectionHandlerID, waveHandle, pause)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.pauseWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['waveHandle'], kwargs['pause'])
+		return TS3Functions.pauseWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['waveHandle'], kwargs['pause'])
 
 	def closeWaveFileHandle(self, **kwargs):
 		# TS3Functions.closeWaveFileHandle(serverConnectionHandlerID, waveHandle)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.closeWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['waveHandle'])
+		return TS3Functions.closeWaveFileHandle(self.get_server_connection_id(**kwargs), kwargs['waveHandle'])
 
 	def playWaveFile(self, **kwargs):
 		# TS3Functions.playWaveFile(serverConnectionHandlerID, path)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.playWaveFile(self.get_server_connection_id(**kwargs), kwargs['path'])
+		return TS3Functions.playWaveFile(self.get_server_connection_id(**kwargs), kwargs['path'])
 
 	def registerCustomDevice(self, **kwargs):
 		# TS3Functions.registerCustomDevice(deviceID, deviceDisplayName, capFrequency, capChannels, playFrequency, playChannels)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.registerCustomDevice(kwargs['deviceID'], kwargs['deviceDisplayName'], kwargs['capFrequency'], kwargs['capChannels'], kwargs['playFrequency'], kwargs['playChannels'])
+		return TS3Functions.registerCustomDevice(kwargs['deviceID'], kwargs['deviceDisplayName'], kwargs['capFrequency'], kwargs['capChannels'], kwargs['playFrequency'], kwargs['playChannels'])
 
 	def unregisterCustomDevice(self, **kwargs):
 		# TS3Functions.unregisterCustomDevice(deviceID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.unregisterCustomDevice(kwargs['deviceID'])
+		return TS3Functions.unregisterCustomDevice(kwargs['deviceID'])
 
 	def processCustomCaptureData(self, **kwargs):
 		# TS3Functions.processCustomCaptureData(deviceName, buffer, samples)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.processCustomCaptureData(kwargs['deviceName'], kwargs['buffer'], kwargs['samples'])
+		return TS3Functions.processCustomCaptureData(kwargs['deviceName'], kwargs['buffer'], kwargs['samples'])
 
 	def acquireCustomPlaybackData(self, **kwargs):
 		# TS3Functions.acquireCustomPlaybackData(deviceName, samples)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.acquireCustomPlaybackData(kwargs['deviceName'], kwargs['samples'])
+		return TS3Functions.acquireCustomPlaybackData(kwargs['deviceName'], kwargs['samples'])
 
 	def getPreProcessorInfoValueFloat(self, **kwargs):
 		# TS3Functions.getPreProcessorInfoValueFloat(serverConnectionHandlerID, ident)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPreProcessorInfoValueFloat(self.get_server_connection_id(**kwargs), kwargs['ident'])
+		return TS3Functions.getPreProcessorInfoValueFloat(self.get_server_connection_id(**kwargs), kwargs['ident'])
 
 	def getPreProcessorConfigValue(self, **kwargs):
 		# TS3Functions.getPreProcessorConfigValue(serverConnectionHandlerID, ident)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPreProcessorConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'])
+		return TS3Functions.getPreProcessorConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'])
 
 	def setPreProcessorConfigValue(self, **kwargs):
 		# TS3Functions.setPreProcessorConfigValue(serverConnectionHandlerID, ident, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setPreProcessorConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'], kwargs['value'])
+		return TS3Functions.setPreProcessorConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'], kwargs['value'])
 
 	def getEncodeConfigValue(self, **kwargs):
 		# TS3Functions.getEncodeConfigValue(serverConnectionHandlerID, ident)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getEncodeConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'])
+		return TS3Functions.getEncodeConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'])
 
 	def getPlaybackConfigValueAsFloat(self, **kwargs):
 		# TS3Functions.getPlaybackConfigValueAsFloat(serverConnectionHandlerID, ident)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPlaybackConfigValueAsFloat(self.get_server_connection_id(**kwargs), kwargs['ident'])
+		return TS3Functions.getPlaybackConfigValueAsFloat(self.get_server_connection_id(**kwargs), kwargs['ident'])
 
 	def setPlaybackConfigValue(self, **kwargs):
 		# TS3Functions.setPlaybackConfigValue(serverConnectionHandlerID, ident, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setPlaybackConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'], kwargs['value'])
+		return TS3Functions.setPlaybackConfigValue(self.get_server_connection_id(**kwargs), kwargs['ident'], kwargs['value'])
 
 	def setClientVolumeModifier(self, **kwargs):
 		# TS3Functions.setClientVolumeModifier(serverConnectionHandlerID, clientID, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setClientVolumeModifier(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['value'])
+		return TS3Functions.setClientVolumeModifier(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['value'])
 
 	def startVoiceRecording(self, **kwargs):
 		# TS3Functions.startVoiceRecording(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.startVoiceRecording(self.get_server_connection_id(**kwargs))
+		return TS3Functions.startVoiceRecording(self.get_server_connection_id(**kwargs))
 
 	def stopVoiceRecording(self, **kwargs):
 		# TS3Functions.stopVoiceRecording(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.stopVoiceRecording(self.get_server_connection_id(**kwargs))
+		return TS3Functions.stopVoiceRecording(self.get_server_connection_id(**kwargs))
 
 	def systemset3DListenerAttributes(self, **kwargs):
 		# TS3Functions.systemset3DListenerAttributes(serverConnectionHandlerID, position, forward, up)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.systemset3DListenerAttributes(self.get_server_connection_id(**kwargs), kwargs['position'], kwargs['forward'], kwargs['up'])
+		return TS3Functions.systemset3DListenerAttributes(self.get_server_connection_id(**kwargs), kwargs['position'], kwargs['forward'], kwargs['up'])
 
 	def set3DWaveAttributes(self, **kwargs):
 		# TS3Functions.set3DWaveAttributes(serverConnectionHandlerID, waveHandle, position)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.set3DWaveAttributes(self.get_server_connection_id(**kwargs), kwargs['waveHandle'], kwargs['position'])
+		return TS3Functions.set3DWaveAttributes(self.get_server_connection_id(**kwargs), kwargs['waveHandle'], kwargs['position'])
 
 	def systemset3DSettings(self, **kwargs):
 		# TS3Functions.systemset3DSettings(serverConnectionHandlerID, distanceFactor, rolloffScale)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.systemset3DSettings(self.get_server_connection_id(**kwargs), kwargs['distanceFactor'], kwargs['rolloffScale'])
+		return TS3Functions.systemset3DSettings(self.get_server_connection_id(**kwargs), kwargs['distanceFactor'], kwargs['rolloffScale'])
 
 	def channelset3DAttributes(self, **kwargs):
 		# TS3Functions.channelset3DAttributes(serverConnectionHandlerID, clientID, position)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.channelset3DAttributes(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['position'])
+		return TS3Functions.channelset3DAttributes(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['position'])
 
 	def stopConnection(self, **kwargs):
 		# TS3Functions.stopConnection(serverConnectionHandlerID, quitMessage)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.stopConnection(self.get_server_connection_id(**kwargs), kwargs['quitMessage'])
+		return TS3Functions.stopConnection(self.get_server_connection_id(**kwargs), kwargs['quitMessage'])
 
 	def requestClientMove(self, **kwargs):
 		# TS3Functions.requestClientMove(serverConnectionHandlerID, clientID, newChannelID, password, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientMove(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['newChannelID'], kwargs['password'], kwargs['returnCode'])
+		return TS3Functions.requestClientMove(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['newChannelID'], kwargs['password'], kwargs['returnCode'])
 
 	def requestClientVariables(self, **kwargs):
 		# TS3Functions.requestClientVariables(serverConnectionHandlerID, clientID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientVariables(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
+		return TS3Functions.requestClientVariables(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
 
 	def requestClientKickFromChannel(self, **kwargs):
 		# TS3Functions.requestClientKickFromChannel(serverConnectionHandlerID, clientID, kickReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientKickFromChannel(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['kickReason'], kwargs['returnCode'])
+		return TS3Functions.requestClientKickFromChannel(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['kickReason'], kwargs['returnCode'])
 
 	def requestClientKickFromServer(self, **kwargs):
 		# TS3Functions.requestClientKickFromServer(serverConnectionHandlerID, clientID, kickReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientKickFromServer(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['kickReason'], kwargs['returnCode'])
+		return TS3Functions.requestClientKickFromServer(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['kickReason'], kwargs['returnCode'])
 
 	def requestChannelDelete(self, **kwargs):
 		# TS3Functions.requestChannelDelete(serverConnectionHandlerID, channelID, force, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelDelete(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['force'], kwargs['returnCode'])
+		return TS3Functions.requestChannelDelete(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['force'], kwargs['returnCode'])
 
 	def requestChannelMove(self, **kwargs):
 		# TS3Functions.requestChannelMove(serverConnectionHandlerID, channelID, newChannelParentID, newChannelOrder, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelMove(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['newChannelParentID'], kwargs['newChannelOrder'], kwargs['returnCode'])
+		return TS3Functions.requestChannelMove(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['newChannelParentID'], kwargs['newChannelOrder'], kwargs['returnCode'])
 
 	def requestSendPrivateTextMsg(self, **kwargs):
 		# TS3Functions.requestSendPrivateTextMsg(serverConnectionHandlerID, message, targetClientID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestSendPrivateTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['targetClientID'], kwargs['returnCode'])
+		return TS3Functions.requestSendPrivateTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['targetClientID'], kwargs['returnCode'])
 
 	def requestSendChannelTextMsg(self, **kwargs):
 		# TS3Functions.requestSendChannelTextMsg(serverConnectionHandlerID, message, targetChannelID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestSendChannelTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['targetChannelID'], kwargs['returnCode'])
+		return TS3Functions.requestSendChannelTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['targetChannelID'], kwargs['returnCode'])
 
 	def requestSendServerTextMsg(self, **kwargs):
 		# TS3Functions.requestSendServerTextMsg(serverConnectionHandlerID, message, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestSendServerTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['returnCode'])
+		return TS3Functions.requestSendServerTextMsg(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['returnCode'])
 
 	def requestConnectionInfo(self, **kwargs):
 		# TS3Functions.requestConnectionInfo(serverConnectionHandlerID, clientID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestConnectionInfo(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
+		return TS3Functions.requestConnectionInfo(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
 
 	def requestClientSetWhisperList(self, **kwargs):
 		# TS3Functions.requestClientSetWhisperList(serverConnectionHandlerID, clientID, targetChannelIDArray, targetClientIDArray, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientSetWhisperList(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['targetChannelIDArray'], kwargs['targetClientIDArray'], kwargs['returnCode'])
+		return TS3Functions.requestClientSetWhisperList(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['targetChannelIDArray'], kwargs['targetClientIDArray'], kwargs['returnCode'])
 
 	def requestChannelSubscribe(self, **kwargs):
 		# TS3Functions.requestChannelSubscribe(serverConnectionHandlerID, channelIDArray, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelSubscribe(self.get_server_connection_id(**kwargs), kwargs['channelIDArray'], kwargs['returnCode'])
+		return TS3Functions.requestChannelSubscribe(self.get_server_connection_id(**kwargs), kwargs['channelIDArray'], kwargs['returnCode'])
 
 	def requestChannelSubscribeAll(self, **kwargs):
 		# TS3Functions.requestChannelSubscribeAll(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelSubscribeAll(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestChannelSubscribeAll(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestChannelUnsubscribe(self, **kwargs):
 		# TS3Functions.requestChannelUnsubscribe(serverConnectionHandlerID, channelIDArray, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelUnsubscribe(self.get_server_connection_id(**kwargs), kwargs['channelIDArray'], kwargs['returnCode'])
+		return TS3Functions.requestChannelUnsubscribe(self.get_server_connection_id(**kwargs), kwargs['channelIDArray'], kwargs['returnCode'])
 
 	def requestChannelUnsubscribeAll(self, **kwargs):
 		# TS3Functions.requestChannelUnsubscribeAll(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelUnsubscribeAll(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestChannelUnsubscribeAll(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestChannelDescription(self, **kwargs):
 		# TS3Functions.requestChannelDescription(serverConnectionHandlerID, channelID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelDescription(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
+		return TS3Functions.requestChannelDescription(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
 
 	def requestMuteClients(self, **kwargs):
 		# TS3Functions.requestMuteClients(serverConnectionHandlerID, clientIDArray, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMuteClients(self.get_server_connection_id(**kwargs), kwargs['clientIDArray'], kwargs['returnCode'])
+		return TS3Functions.requestMuteClients(self.get_server_connection_id(**kwargs), kwargs['clientIDArray'], kwargs['returnCode'])
 
 	def requestUnmuteClients(self, **kwargs):
 		# TS3Functions.requestUnmuteClients(serverConnectionHandlerID, clientIDArray, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestUnmuteClients(self.get_server_connection_id(**kwargs), kwargs['clientIDArray'], kwargs['returnCode'])
+		return TS3Functions.requestUnmuteClients(self.get_server_connection_id(**kwargs), kwargs['clientIDArray'], kwargs['returnCode'])
 
 	def requestClientPoke(self, **kwargs):
 		# TS3Functions.requestClientPoke(serverConnectionHandlerID, clientID, message, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientPoke(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['message'], kwargs['returnCode'])
+		return TS3Functions.requestClientPoke(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['message'], kwargs['returnCode'])
 
 	def requestClientIDs(self, **kwargs):
 		# TS3Functions.requestClientIDs(serverConnectionHandlerID, clientUniqueIdentifier, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientIDs(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
+		return TS3Functions.requestClientIDs(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
 
 	def clientChatClosed(self, **kwargs):
 		# TS3Functions.clientChatClosed(serverConnectionHandlerID, clientUniqueIdentifier, clientID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.clientChatClosed(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['clientID'], kwargs['returnCode'])
+		return TS3Functions.clientChatClosed(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['clientID'], kwargs['returnCode'])
 
 	def clientChatComposing(self, **kwargs):
 		# TS3Functions.clientChatComposing(serverConnectionHandlerID, clientID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.clientChatComposing(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
+		return TS3Functions.clientChatComposing(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['returnCode'])
 
 	def requestServerTemporaryPasswordAdd(self, **kwargs):
 		# TS3Functions.requestServerTemporaryPasswordAdd(serverConnectionHandlerID, password, description, duration, targetChannelID, targetChannelPW, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerTemporaryPasswordAdd(self.get_server_connection_id(**kwargs), kwargs['password'], kwargs['description'], kwargs['duration'], kwargs['targetChannelID'], kwargs['targetChannelPW'], kwargs['returnCode'])
+		return TS3Functions.requestServerTemporaryPasswordAdd(self.get_server_connection_id(**kwargs), kwargs['password'], kwargs['description'], kwargs['duration'], kwargs['targetChannelID'], kwargs['targetChannelPW'], kwargs['returnCode'])
 
 	def requestServerTemporaryPasswordDel(self, **kwargs):
 		# TS3Functions.requestServerTemporaryPasswordDel(serverConnectionHandlerID, password, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerTemporaryPasswordDel(self.get_server_connection_id(**kwargs), kwargs['password'], kwargs['returnCode'])
+		return TS3Functions.requestServerTemporaryPasswordDel(self.get_server_connection_id(**kwargs), kwargs['password'], kwargs['returnCode'])
 
 	def requestServerTemporaryPasswordList(self, **kwargs):
 		# TS3Functions.requestServerTemporaryPasswordList(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerTemporaryPasswordList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestServerTemporaryPasswordList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def getClientID(self, **kwargs):
 		# TS3Functions.getClientID(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientID(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getClientID(self.get_server_connection_id(**kwargs))
 
 	def getClientSelfVariableAsInt(self, **kwargs):
 		# TS3Functions.getClientSelfVariableAsInt(serverConnectionHandlerID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientSelfVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'])
+		return TS3Functions.getClientSelfVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'])
 
 	def getClientSelfVariableAsString(self, **kwargs):
 		# TS3Functions.getClientSelfVariableAsString(serverConnectionHandlerID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientSelfVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'])
+		return TS3Functions.getClientSelfVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'])
 
 	def setClientSelfVariableAsInt(self, **kwargs):
 		# TS3Functions.setClientSelfVariableAsInt(serverConnectionHandlerID, flag, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setClientSelfVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'], kwargs['value'])
+		return TS3Functions.setClientSelfVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'], kwargs['value'])
 
 	def setClientSelfVariableAsString(self, **kwargs):
 		# TS3Functions.setClientSelfVariableAsString(serverConnectionHandlerID, flag, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setClientSelfVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'], kwargs['value'])
+		return TS3Functions.setClientSelfVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'], kwargs['value'])
 
 	def flushClientSelfUpdates(self, **kwargs):
 		# TS3Functions.flushClientSelfUpdates(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.flushClientSelfUpdates(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.flushClientSelfUpdates(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def getClientVariableAsInt(self, **kwargs):
 		# TS3Functions.getClientVariableAsInt(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getClientVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def getClientVariableAsUInt64(self, **kwargs):
 		# TS3Functions.getClientVariableAsUInt64(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getClientVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def getClientVariableAsString(self, **kwargs):
 		# TS3Functions.getClientVariableAsString(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientVariableAsString(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getClientVariableAsString(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def getClientList(self, **kwargs):
 		# TS3Functions.getClientList(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientList(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getClientList(self.get_server_connection_id(**kwargs))
 
 	def getChannelOfClient(self, **kwargs):
 		# TS3Functions.getChannelOfClient(serverConnectionHandlerID, clientID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelOfClient(self.get_server_connection_id(**kwargs), kwargs['clientID'])
+		return TS3Functions.getChannelOfClient(self.get_server_connection_id(**kwargs), kwargs['clientID'])
 
 	def getChannelVariableAsInt(self, **kwargs):
 		# TS3Functions.getChannelVariableAsInt(serverConnectionHandlerID, channelID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
+		return TS3Functions.getChannelVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
 
 	def getChannelVariableAsUInt64(self, **kwargs):
 		# TS3Functions.getChannelVariableAsUInt64(serverConnectionHandlerID, channelID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
+		return TS3Functions.getChannelVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
 
 	def getChannelVariableAsString(self, **kwargs):
 		# TS3Functions.getChannelVariableAsString(serverConnectionHandlerID, channelID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelVariableAsString(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
+		return TS3Functions.getChannelVariableAsString(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'])
 
 	def getChannelIDFromChannelNames(self, **kwargs):
 		# TS3Functions.getChannelIDFromChannelNames(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelIDFromChannelNames(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getChannelIDFromChannelNames(self.get_server_connection_id(**kwargs))
 
 	def setChannelVariableAsInt(self, **kwargs):
 		# TS3Functions.setChannelVariableAsInt(serverConnectionHandlerID, channelID, flag, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setChannelVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
+		return TS3Functions.setChannelVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
 
 	def setChannelVariableAsUInt64(self, **kwargs):
 		# TS3Functions.setChannelVariableAsUInt64(serverConnectionHandlerID, channelID, flag, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setChannelVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
+		return TS3Functions.setChannelVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
 
 	def setChannelVariableAsString(self, **kwargs):
 		# TS3Functions.setChannelVariableAsString(serverConnectionHandlerID, channelID, flag, value)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setChannelVariableAsString(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
+		return TS3Functions.setChannelVariableAsString(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['flag'], kwargs['value'])
 
 	def flushChannelUpdates(self, **kwargs):
 		# TS3Functions.flushChannelUpdates(serverConnectionHandlerID, channelID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.flushChannelUpdates(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
+		return TS3Functions.flushChannelUpdates(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
 
 	def flushChannelCreation(self, **kwargs):
 		# TS3Functions.flushChannelCreation(serverConnectionHandlerID, channelParentID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.flushChannelCreation(self.get_server_connection_id(**kwargs), kwargs['channelParentID'], kwargs['returnCode'])
+		return TS3Functions.flushChannelCreation(self.get_server_connection_id(**kwargs), kwargs['channelParentID'], kwargs['returnCode'])
 
 	def getChannelList(self, **kwargs):
 		# TS3Functions.getChannelList(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelList(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getChannelList(self.get_server_connection_id(**kwargs))
 
 	def getChannelClientList(self, **kwargs):
 		# TS3Functions.getChannelClientList(serverConnectionHandlerID, channelID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelClientList(self.get_server_connection_id(**kwargs), kwargs['channelID'])
+		return TS3Functions.getChannelClientList(self.get_server_connection_id(**kwargs), kwargs['channelID'])
 
 	def getParentChannelOfChannel(self, **kwargs):
 		# TS3Functions.getParentChannelOfChannel(serverConnectionHandlerID, channelID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getParentChannelOfChannel(self.get_server_connection_id(**kwargs), kwargs['channelID'])
+		return TS3Functions.getParentChannelOfChannel(self.get_server_connection_id(**kwargs), kwargs['channelID'])
 
 	def getServerConnectionHandlerList(self, **kwargs):
 		# TS3Functions.getServerConnectionHandlerList()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerConnectionHandlerList()
+		return TS3Functions.getServerConnectionHandlerList()
 
 	def getServerVariableAsInt(self, **kwargs):
 		# TS3Functions.getServerVariableAsInt(serverConnectionHandlerID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'])
+		return TS3Functions.getServerVariableAsInt(self.get_server_connection_id(**kwargs), kwargs['flag'])
 
 	def getServerVariableAsUInt64(self, **kwargs):
 		# TS3Functions.getServerVariableAsUInt64(serverConnectionHandlerID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['flag'])
+		return TS3Functions.getServerVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['flag'])
 
 	def getServerVariableAsString(self, **kwargs):
 		# TS3Functions.getServerVariableAsString(serverConnectionHandlerID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'])
+		return TS3Functions.getServerVariableAsString(self.get_server_connection_id(**kwargs), kwargs['flag'])
 
 	def requestServerVariables(self, **kwargs):
 		# TS3Functions.requestServerVariables(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerVariables(self.get_server_connection_id(**kwargs))
+		return TS3Functions.requestServerVariables(self.get_server_connection_id(**kwargs))
 
 	def getConnectionStatus(self, **kwargs):
 		# TS3Functions.getConnectionStatus(serverConnectionHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getConnectionStatus(self.get_server_connection_id(**kwargs))
+		return TS3Functions.getConnectionStatus(self.get_server_connection_id(**kwargs))
 
 	def getConnectionVariableAsUInt64(self, **kwargs):
 		# TS3Functions.getConnectionVariableAsUInt64(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getConnectionVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getConnectionVariableAsUInt64(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def getConnectionVariableAsDouble(self, **kwargs):
 		# TS3Functions.getConnectionVariableAsDouble(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getConnectionVariableAsDouble(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getConnectionVariableAsDouble(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def getConnectionVariableAsString(self, **kwargs):
 		# TS3Functions.getConnectionVariableAsString(serverConnectionHandlerID, clientID, flag)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getConnectionVariableAsString(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
+		return TS3Functions.getConnectionVariableAsString(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['flag'])
 
 	def cleanUpConnectionInfo(self, **kwargs):
 		# TS3Functions.cleanUpConnectionInfo(serverConnectionHandlerID, clientID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.cleanUpConnectionInfo(self.get_server_connection_id(**kwargs), kwargs['clientID'])
+		return TS3Functions.cleanUpConnectionInfo(self.get_server_connection_id(**kwargs), kwargs['clientID'])
 
 	def requestClientDBIDfromUID(self, **kwargs):
 		# TS3Functions.requestClientDBIDfromUID(serverConnectionHandlerID, clientUniqueIdentifier, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientDBIDfromUID(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
+		return TS3Functions.requestClientDBIDfromUID(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
 
 	def requestClientNamefromUID(self, **kwargs):
 		# TS3Functions.requestClientNamefromUID(serverConnectionHandlerID, clientUniqueIdentifier, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientNamefromUID(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
+		return TS3Functions.requestClientNamefromUID(self.get_server_connection_id(**kwargs), kwargs['clientUniqueIdentifier'], kwargs['returnCode'])
 
 	def requestClientNamefromDBID(self, **kwargs):
 		# TS3Functions.requestClientNamefromDBID(serverConnectionHandlerID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientNamefromDBID(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestClientNamefromDBID(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def requestClientEditDescription(self, **kwargs):
 		# TS3Functions.requestClientEditDescription(serverConnectionHandlerID, clientID, clientDescription, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientEditDescription(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['clientDescription'], kwargs['returnCode'])
+		return TS3Functions.requestClientEditDescription(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['clientDescription'], kwargs['returnCode'])
 
 	def requestClientSetIsTalker(self, **kwargs):
 		# TS3Functions.requestClientSetIsTalker(serverConnectionHandlerID, clientID, isTalker, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientSetIsTalker(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['isTalker'], kwargs['returnCode'])
+		return TS3Functions.requestClientSetIsTalker(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['isTalker'], kwargs['returnCode'])
 
 	def requestIsTalker(self, **kwargs):
 		# TS3Functions.requestIsTalker(serverConnectionHandlerID, isTalkerRequest, isTalkerRequestMessage, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestIsTalker(self.get_server_connection_id(**kwargs), kwargs['isTalkerRequest'], kwargs['isTalkerRequestMessage'], kwargs['returnCode'])
+		return TS3Functions.requestIsTalker(self.get_server_connection_id(**kwargs), kwargs['isTalkerRequest'], kwargs['isTalkerRequestMessage'], kwargs['returnCode'])
 
 	def requestSendClientQueryCommand(self, **kwargs):
 		# TS3Functions.requestSendClientQueryCommand(serverConnectionHandlerID, command, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestSendClientQueryCommand(self.get_server_connection_id(**kwargs), kwargs['command'], kwargs['returnCode'])
+		return TS3Functions.requestSendClientQueryCommand(self.get_server_connection_id(**kwargs), kwargs['command'], kwargs['returnCode'])
 
 	def getTransferFileName(self, **kwargs):
 		# TS3Functions.getTransferFileName(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferFileName(kwargs['transferID'])
+		return TS3Functions.getTransferFileName(kwargs['transferID'])
 
 	def getTransferFilePath(self, **kwargs):
 		# TS3Functions.getTransferFilePath(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferFilePath(kwargs['transferID'])
+		return TS3Functions.getTransferFilePath(kwargs['transferID'])
 
 	def getTransferFileSize(self, **kwargs):
 		# TS3Functions.getTransferFileSize(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferFileSize(kwargs['transferID'])
+		return TS3Functions.getTransferFileSize(kwargs['transferID'])
 
 	def getTransferFileSizeDone(self, **kwargs):
 		# TS3Functions.getTransferFileSizeDone(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferFileSizeDone(kwargs['transferID'])
+		return TS3Functions.getTransferFileSizeDone(kwargs['transferID'])
 
 	def isTransferSender(self, **kwargs):
 		# TS3Functions.isTransferSender(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.isTransferSender(kwargs['transferID'])
+		return TS3Functions.isTransferSender(kwargs['transferID'])
 
 	def getTransferStatus(self, **kwargs):
 		# TS3Functions.getTransferStatus(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferStatus(kwargs['transferID'])
+		return TS3Functions.getTransferStatus(kwargs['transferID'])
 
 	def getCurrentTransferSpeed(self, **kwargs):
 		# TS3Functions.getCurrentTransferSpeed(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentTransferSpeed(kwargs['transferID'])
+		return TS3Functions.getCurrentTransferSpeed(kwargs['transferID'])
 
 	def getAverageTransferSpeed(self, **kwargs):
 		# TS3Functions.getAverageTransferSpeed(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getAverageTransferSpeed(kwargs['transferID'])
+		return TS3Functions.getAverageTransferSpeed(kwargs['transferID'])
 
 	def getTransferRunTime(self, **kwargs):
 		# TS3Functions.getTransferRunTime(transferID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getTransferRunTime(kwargs['transferID'])
+		return TS3Functions.getTransferRunTime(kwargs['transferID'])
 
 	def sendFile(self, **kwargs):
 		# TS3Functions.sendFile(serverConnectionHandlerID, channelID, channelPW, file, overwrite, resume, sourceDirectory, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.sendFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['overwrite'], kwargs['resume'], kwargs['sourceDirectory'], kwargs['returnCode'])
+		return TS3Functions.sendFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['overwrite'], kwargs['resume'], kwargs['sourceDirectory'], kwargs['returnCode'])
 
 	def requestFile(self, **kwargs):
 		# TS3Functions.requestFile(serverConnectionHandlerID, channelID, channelPW, file, overwrite, resume, destinationDirectory, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['overwrite'], kwargs['resume'], kwargs['destinationDirectory'], kwargs['returnCode'])
+		return TS3Functions.requestFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['overwrite'], kwargs['resume'], kwargs['destinationDirectory'], kwargs['returnCode'])
 
 	def haltTransfer(self, **kwargs):
 		# TS3Functions.haltTransfer(serverConnectionHandlerID, transferID, deleteUnfinishedFile, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.haltTransfer(self.get_server_connection_id(**kwargs), kwargs['transferID'], kwargs['deleteUnfinishedFile'], kwargs['returnCode'])
+		return TS3Functions.haltTransfer(self.get_server_connection_id(**kwargs), kwargs['transferID'], kwargs['deleteUnfinishedFile'], kwargs['returnCode'])
 
 	def requestFileList(self, **kwargs):
 		# TS3Functions.requestFileList(serverConnectionHandlerID, channelID, channelPW, path, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestFileList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['path'], kwargs['returnCode'])
+		return TS3Functions.requestFileList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['path'], kwargs['returnCode'])
 
 	def requestFileInfo(self, **kwargs):
 		# TS3Functions.requestFileInfo(serverConnectionHandlerID, channelID, channelPW, file, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestFileInfo(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['returnCode'])
+		return TS3Functions.requestFileInfo(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['returnCode'])
 
 	def requestDeleteFile(self, **kwargs):
 		# TS3Functions.requestDeleteFile(serverConnectionHandlerID, channelID, channelPW, file, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestDeleteFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['returnCode'])
+		return TS3Functions.requestDeleteFile(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['file'], kwargs['returnCode'])
 
 	def requestCreateDirectory(self, **kwargs):
 		# TS3Functions.requestCreateDirectory(serverConnectionHandlerID, channelID, channelPW, directoryPath, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestCreateDirectory(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['directoryPath'], kwargs['returnCode'])
+		return TS3Functions.requestCreateDirectory(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPW'], kwargs['directoryPath'], kwargs['returnCode'])
 
 	def requestRenameFile(self, **kwargs):
 		# TS3Functions.requestRenameFile(serverConnectionHandlerID, fromChannelID, channelPW, toChannelID, toChannelPW, oldFile, newFile, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestRenameFile(self.get_server_connection_id(**kwargs), kwargs['fromChannelID'], kwargs['channelPW'], kwargs['toChannelID'], kwargs['toChannelPW'], kwargs['oldFile'], kwargs['newFile'], kwargs['returnCode'])
+		return TS3Functions.requestRenameFile(self.get_server_connection_id(**kwargs), kwargs['fromChannelID'], kwargs['channelPW'], kwargs['toChannelID'], kwargs['toChannelPW'], kwargs['oldFile'], kwargs['newFile'], kwargs['returnCode'])
 
 	def requestMessageAdd(self, **kwargs):
 		# TS3Functions.requestMessageAdd(serverConnectionHandlerID, toClientUID, subject, message, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMessageAdd(self.get_server_connection_id(**kwargs), kwargs['toClientUID'], kwargs['subject'], kwargs['message'], kwargs['returnCode'])
+		return TS3Functions.requestMessageAdd(self.get_server_connection_id(**kwargs), kwargs['toClientUID'], kwargs['subject'], kwargs['message'], kwargs['returnCode'])
 
 	def requestMessageDel(self, **kwargs):
 		# TS3Functions.requestMessageDel(serverConnectionHandlerID, messageID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMessageDel(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['returnCode'])
+		return TS3Functions.requestMessageDel(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['returnCode'])
 
 	def requestMessageGet(self, **kwargs):
 		# TS3Functions.requestMessageGet(serverConnectionHandlerID, messageID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMessageGet(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['returnCode'])
+		return TS3Functions.requestMessageGet(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['returnCode'])
 
 	def requestMessageList(self, **kwargs):
 		# TS3Functions.requestMessageList(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMessageList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestMessageList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestMessageUpdateFlag(self, **kwargs):
 		# TS3Functions.requestMessageUpdateFlag(serverConnectionHandlerID, messageID, flag, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestMessageUpdateFlag(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['flag'], kwargs['returnCode'])
+		return TS3Functions.requestMessageUpdateFlag(self.get_server_connection_id(**kwargs), kwargs['messageID'], kwargs['flag'], kwargs['returnCode'])
 
 	def verifyServerPassword(self, **kwargs):
 		# TS3Functions.verifyServerPassword(serverConnectionHandlerID, serverPassword, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.verifyServerPassword(self.get_server_connection_id(**kwargs), kwargs['serverPassword'], kwargs['returnCode'])
+		return TS3Functions.verifyServerPassword(self.get_server_connection_id(**kwargs), kwargs['serverPassword'], kwargs['returnCode'])
 
 	def verifyChannelPassword(self, **kwargs):
 		# TS3Functions.verifyChannelPassword(serverConnectionHandlerID, channelID, channelPassword, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.verifyChannelPassword(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPassword'], kwargs['returnCode'])
+		return TS3Functions.verifyChannelPassword(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['channelPassword'], kwargs['returnCode'])
 
 	def banclient(self, **kwargs):
 		# TS3Functions.banclient(serverConnectionHandlerID, clientID, timeInSeconds, banReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.banclient(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
+		return TS3Functions.banclient(self.get_server_connection_id(**kwargs), kwargs['clientID'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
 
 	def banadd(self, **kwargs):
 		# TS3Functions.banadd(serverConnectionHandlerID, ipRegExp, nameRegexp, uniqueIdentity, timeInSeconds, banReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.banadd(self.get_server_connection_id(**kwargs), kwargs['ipRegExp'], kwargs['nameRegexp'], kwargs['uniqueIdentity'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
+		return TS3Functions.banadd(self.get_server_connection_id(**kwargs), kwargs['ipRegExp'], kwargs['nameRegexp'], kwargs['uniqueIdentity'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
 
 	def banclientdbid(self, **kwargs):
 		# TS3Functions.banclientdbid(serverConnectionHandlerID, clientDBID, timeInSeconds, banReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.banclientdbid(self.get_server_connection_id(**kwargs), kwargs['clientDBID'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
+		return TS3Functions.banclientdbid(self.get_server_connection_id(**kwargs), kwargs['clientDBID'], kwargs['timeInSeconds'], kwargs['banReason'], kwargs['returnCode'])
 
 	def bandel(self, **kwargs):
 		# TS3Functions.bandel(serverConnectionHandlerID, banID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.bandel(self.get_server_connection_id(**kwargs), kwargs['banID'], kwargs['returnCode'])
+		return TS3Functions.bandel(self.get_server_connection_id(**kwargs), kwargs['banID'], kwargs['returnCode'])
 
 	def bandelall(self, **kwargs):
 		# TS3Functions.bandelall(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.bandelall(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.bandelall(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestBanList(self, **kwargs):
 		# TS3Functions.requestBanList(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestBanList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestBanList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestComplainAdd(self, **kwargs):
 		# TS3Functions.requestComplainAdd(serverConnectionHandlerID, targetClientDatabaseID, complainReason, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestComplainAdd(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['complainReason'], kwargs['returnCode'])
+		return TS3Functions.requestComplainAdd(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['complainReason'], kwargs['returnCode'])
 
 	def requestComplainDel(self, **kwargs):
 		# TS3Functions.requestComplainDel(serverConnectionHandlerID, targetClientDatabaseID, fromClientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestComplainDel(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['fromClientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestComplainDel(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['fromClientDatabaseID'], kwargs['returnCode'])
 
 	def requestComplainDelAll(self, **kwargs):
 		# TS3Functions.requestComplainDelAll(serverConnectionHandlerID, targetClientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestComplainDelAll(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestComplainDelAll(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['returnCode'])
 
 	def requestComplainList(self, **kwargs):
 		# TS3Functions.requestComplainList(serverConnectionHandlerID, targetClientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestComplainList(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestComplainList(self.get_server_connection_id(**kwargs), kwargs['targetClientDatabaseID'], kwargs['returnCode'])
 
 	def requestServerGroupList(self, **kwargs):
 		# TS3Functions.requestServerGroupList(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestServerGroupList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestServerGroupAdd(self, **kwargs):
 		# TS3Functions.requestServerGroupAdd(serverConnectionHandlerID, groupName, groupType, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupAdd(self.get_server_connection_id(**kwargs), kwargs['groupName'], kwargs['groupType'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupAdd(self.get_server_connection_id(**kwargs), kwargs['groupName'], kwargs['groupType'], kwargs['returnCode'])
 
 	def requestServerGroupDel(self, **kwargs):
 		# TS3Functions.requestServerGroupDel(serverConnectionHandlerID, serverGroupID, force, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupDel(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['force'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupDel(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['force'], kwargs['returnCode'])
 
 	def requestServerGroupAddClient(self, **kwargs):
 		# TS3Functions.requestServerGroupAddClient(serverConnectionHandlerID, serverGroupID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupAddClient(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupAddClient(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def requestServerGroupDelClient(self, **kwargs):
 		# TS3Functions.requestServerGroupDelClient(serverConnectionHandlerID, serverGroupID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupDelClient(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupDelClient(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def requestServerGroupsByClientID(self, **kwargs):
 		# TS3Functions.requestServerGroupsByClientID(serverConnectionHandlerID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupsByClientID(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupsByClientID(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def requestServerGroupAddPerm(self, **kwargs):
 		# TS3Functions.requestServerGroupAddPerm(serverConnectionHandlerID, serverGroupID, continueonerror, permissionIDArray, permissionValueArray, permissionNegatedArray, permissionSkipArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupAddPerm(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['continueonerror'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['permissionNegatedArray'], kwargs['permissionSkipArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupAddPerm(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['continueonerror'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['permissionNegatedArray'], kwargs['permissionSkipArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestServerGroupDelPerm(self, **kwargs):
 		# TS3Functions.requestServerGroupDelPerm(serverConnectionHandlerID, serverGroupID, continueOnError, permissionIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupDelPerm(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['continueOnError'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupDelPerm(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['continueOnError'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestServerGroupPermList(self, **kwargs):
 		# TS3Functions.requestServerGroupPermList(serverConnectionHandlerID, serverGroupID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupPermList(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupPermList(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['returnCode'])
 
 	def requestServerGroupClientList(self, **kwargs):
 		# TS3Functions.requestServerGroupClientList(serverConnectionHandlerID, serverGroupID, withNames, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestServerGroupClientList(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['withNames'], kwargs['returnCode'])
+		return TS3Functions.requestServerGroupClientList(self.get_server_connection_id(**kwargs), kwargs['serverGroupID'], kwargs['withNames'], kwargs['returnCode'])
 
 	def requestChannelGroupList(self, **kwargs):
 		# TS3Functions.requestChannelGroupList(serverConnectionHandlerID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupList(self.get_server_connection_id(**kwargs), kwargs['returnCode'])
 
 	def requestChannelGroupAdd(self, **kwargs):
 		# TS3Functions.requestChannelGroupAdd(serverConnectionHandlerID, groupName, groupType, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupAdd(self.get_server_connection_id(**kwargs), kwargs['groupName'], kwargs['groupType'], kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupAdd(self.get_server_connection_id(**kwargs), kwargs['groupName'], kwargs['groupType'], kwargs['returnCode'])
 
 	def requestChannelGroupDel(self, **kwargs):
 		# TS3Functions.requestChannelGroupDel(serverConnectionHandlerID, channelGroupID, force, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupDel(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['force'], kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupDel(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['force'], kwargs['returnCode'])
 
 	def requestChannelGroupAddPerm(self, **kwargs):
 		# TS3Functions.requestChannelGroupAddPerm(serverConnectionHandlerID, channelGroupID, continueonerror, permissionIDArray, permissionValueArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['continueonerror'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['continueonerror'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelGroupDelPerm(self, **kwargs):
 		# TS3Functions.requestChannelGroupDelPerm(serverConnectionHandlerID, channelGroupID, continueOnError, permissionIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['continueOnError'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['continueOnError'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelGroupPermList(self, **kwargs):
 		# TS3Functions.requestChannelGroupPermList(serverConnectionHandlerID, channelGroupID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelGroupPermList(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['returnCode'])
+		return TS3Functions.requestChannelGroupPermList(self.get_server_connection_id(**kwargs), kwargs['channelGroupID'], kwargs['returnCode'])
 
 	def requestSetClientChannelGroup(self, **kwargs):
 		# TS3Functions.requestSetClientChannelGroup(serverConnectionHandlerID, channelGroupIDArray, channelIDArray, clientDatabaseIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestSetClientChannelGroup(self.get_server_connection_id(**kwargs), kwargs['channelGroupIDArray'], kwargs['channelIDArray'], kwargs['clientDatabaseIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestSetClientChannelGroup(self.get_server_connection_id(**kwargs), kwargs['channelGroupIDArray'], kwargs['channelIDArray'], kwargs['clientDatabaseIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelAddPerm(self, **kwargs):
 		# TS3Functions.requestChannelAddPerm(serverConnectionHandlerID, channelID, permissionIDArray, permissionValueArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelDelPerm(self, **kwargs):
 		# TS3Functions.requestChannelDelPerm(serverConnectionHandlerID, channelID, permissionIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelPermList(self, **kwargs):
 		# TS3Functions.requestChannelPermList(serverConnectionHandlerID, channelID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelPermList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
+		return TS3Functions.requestChannelPermList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['returnCode'])
 
 	def requestClientAddPerm(self, **kwargs):
 		# TS3Functions.requestClientAddPerm(serverConnectionHandlerID, clientDatabaseID, permissionIDArray, permissionValueArray, permissionSkipArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientAddPerm(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['permissionSkipArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestClientAddPerm(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['permissionSkipArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestClientDelPerm(self, **kwargs):
 		# TS3Functions.requestClientDelPerm(serverConnectionHandlerID, clientDatabaseID, permissionIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientDelPerm(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestClientDelPerm(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestClientPermList(self, **kwargs):
 		# TS3Functions.requestClientPermList(serverConnectionHandlerID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestClientPermList(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestClientPermList(self.get_server_connection_id(**kwargs), kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def requestChannelClientAddPerm(self, **kwargs):
 		# TS3Functions.requestChannelClientAddPerm(serverConnectionHandlerID, channelID, clientDatabaseID, permissionIDArray, permissionValueArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelClientAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelClientAddPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['permissionValueArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelClientDelPerm(self, **kwargs):
 		# TS3Functions.requestChannelClientDelPerm(serverConnectionHandlerID, channelID, clientDatabaseID, permissionIDArray, arraySize, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelClientDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
+		return TS3Functions.requestChannelClientDelPerm(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['permissionIDArray'], kwargs['arraySize'], kwargs['returnCode'])
 
 	def requestChannelClientPermList(self, **kwargs):
 		# TS3Functions.requestChannelClientPermList(serverConnectionHandlerID, channelID, clientDatabaseID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestChannelClientPermList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
+		return TS3Functions.requestChannelClientPermList(self.get_server_connection_id(**kwargs), kwargs['channelID'], kwargs['clientDatabaseID'], kwargs['returnCode'])
 
 	def privilegeKeyUse(self, **kwargs):
 		# TS3Functions.privilegeKeyUse(serverConnectionHandler, tokenKey, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.privilegeKeyUse(kwargs['serverConnectionHandler'], kwargs['tokenKey'], kwargs['returnCode'])
+		return TS3Functions.privilegeKeyUse(kwargs['serverConnectionHandler'], kwargs['tokenKey'], kwargs['returnCode'])
 
 	def requestPermissionList(self, **kwargs):
 		# TS3Functions.requestPermissionList(serverConnectionHandler, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestPermissionList(kwargs['serverConnectionHandler'], kwargs['returnCode'])
+		return TS3Functions.requestPermissionList(kwargs['serverConnectionHandler'], kwargs['returnCode'])
 
 	def requestPermissionOverview(self, **kwargs):
 		# TS3Functions.requestPermissionOverview(serverConnectionHandler, clientDBID, channelID, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestPermissionOverview(kwargs['serverConnectionHandler'], kwargs['clientDBID'], kwargs['channelID'], kwargs['returnCode'])
+		return TS3Functions.requestPermissionOverview(kwargs['serverConnectionHandler'], kwargs['clientDBID'], kwargs['channelID'], kwargs['returnCode'])
 
 	def clientPropertyStringToFlag(self, **kwargs):
 		# TS3Functions.clientPropertyStringToFlag(clientPropertyString)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.clientPropertyStringToFlag(kwargs['clientPropertyString'])
+		return TS3Functions.clientPropertyStringToFlag(kwargs['clientPropertyString'])
 
 	def channelPropertyStringToFlag(self, **kwargs):
 		# TS3Functions.channelPropertyStringToFlag(channelPropertyString)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.channelPropertyStringToFlag(kwargs['channelPropertyString'])
+		return TS3Functions.channelPropertyStringToFlag(kwargs['channelPropertyString'])
 
 	def serverPropertyStringToFlag(self, **kwargs):
 		# TS3Functions.serverPropertyStringToFlag(serverPropertyString)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.serverPropertyStringToFlag(kwargs['serverPropertyString'])
+		return TS3Functions.serverPropertyStringToFlag(kwargs['serverPropertyString'])
 
 	def getAppPath(self, **kwargs):
 		# TS3Functions.getAppPath(maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getAppPath(kwargs['maxLen'])
+		return TS3Functions.getAppPath(kwargs['maxLen'])
 
 	def getResourcesPath(self, **kwargs):
 		# TS3Functions.getResourcesPath(maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getResourcesPath(kwargs['maxLen'])
+		return TS3Functions.getResourcesPath(kwargs['maxLen'])
 
 	def getConfigPath(self, **kwargs):
 		# TS3Functions.getConfigPath(maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getConfigPath(kwargs['maxLen'])
+		return TS3Functions.getConfigPath(kwargs['maxLen'])
 
 	def getPluginPath(self, **kwargs):
 		# TS3Functions.getPluginPath(maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPluginPath(kwargs['maxLen'])
+		return TS3Functions.getPluginPath(kwargs['maxLen'])
 
 	def getCurrentServerConnectionHandlerID(self, **kwargs):
 		# TS3Functions.getCurrentServerConnectionHandlerID()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getCurrentServerConnectionHandlerID()
+		return TS3Functions.getCurrentServerConnectionHandlerID()
 
 	def printMessage(self, **kwargs):
 		# TS3Functions.printMessage(serverConnectionHandlerID, message, messageTarget)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.printMessage(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['messageTarget'])
+		return TS3Functions.printMessage(self.get_server_connection_id(**kwargs), kwargs['message'], kwargs['messageTarget'])
 
 	def printMessageToCurrentTab(self, **kwargs):
 		# TS3Functions.printMessageToCurrentTab(message)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.printMessageToCurrentTab(kwargs['message'])
+		return TS3Functions.printMessageToCurrentTab(kwargs['message'])
 
 	def urlsToBB(self, **kwargs):
 		# TS3Functions.urlsToBB(text, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.urlsToBB(kwargs['text'], kwargs['maxLen'])
+		return TS3Functions.urlsToBB(kwargs['text'], kwargs['maxLen'])
 
 	def sendPluginCommand(self, **kwargs):
 		# TS3Functions.sendPluginCommand(serverConnectionHandlerID, pluginID, command, targetMode, targetIDs, returnCode)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.sendPluginCommand(self.get_server_connection_id(**kwargs), kwargs['pluginID'], kwargs['command'], kwargs['targetMode'], kwargs['targetIDs'], kwargs['returnCode'])
+		return TS3Functions.sendPluginCommand(self.get_server_connection_id(**kwargs), kwargs['pluginID'], kwargs['command'], kwargs['targetMode'], kwargs['targetIDs'], kwargs['returnCode'])
 
 	def getDirectories(self, **kwargs):
 		# TS3Functions.getDirectories(path, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getDirectories(kwargs['path'], kwargs['maxLen'])
+		return TS3Functions.getDirectories(kwargs['path'], kwargs['maxLen'])
 
 	def getServerConnectInfo(self, **kwargs):
 		# TS3Functions.getServerConnectInfo(scHandlerID, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerConnectInfo(kwargs['scHandlerID'], kwargs['maxLen'])
+		return TS3Functions.getServerConnectInfo(kwargs['scHandlerID'], kwargs['maxLen'])
 
 	def getChannelConnectInfo(self, **kwargs):
 		# TS3Functions.getChannelConnectInfo(scHandlerID, channelID, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getChannelConnectInfo(kwargs['scHandlerID'], kwargs['channelID'], kwargs['maxLen'])
+		return TS3Functions.getChannelConnectInfo(kwargs['scHandlerID'], kwargs['channelID'], kwargs['maxLen'])
 
 	def createReturnCode(self, **kwargs):
 		# TS3Functions.createReturnCode(pluginID, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.createReturnCode(kwargs['pluginID'], kwargs['maxLen'])
+		return TS3Functions.createReturnCode(kwargs['pluginID'], kwargs['maxLen'])
 
 	def requestInfoUpdate(self, **kwargs):
 		# TS3Functions.requestInfoUpdate(scHandlerID, itemType, itemID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestInfoUpdate(kwargs['scHandlerID'], kwargs['itemType'], kwargs['itemID'])
+		return TS3Functions.requestInfoUpdate(kwargs['scHandlerID'], kwargs['itemType'], kwargs['itemID'])
 
 	def getServerVersion(self, **kwargs):
 		# TS3Functions.getServerVersion(scHandlerID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getServerVersion(kwargs['scHandlerID'])
+		return TS3Functions.getServerVersion(kwargs['scHandlerID'])
 
 	def isWhispering(self, **kwargs):
 		# TS3Functions.isWhispering(scHandlerID, clientID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.isWhispering(kwargs['scHandlerID'], kwargs['clientID'])
+		return TS3Functions.isWhispering(kwargs['scHandlerID'], kwargs['clientID'])
 
 	def isReceivingWhisper(self, **kwargs):
 		# TS3Functions.isReceivingWhisper(scHandlerID, clientID)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.isReceivingWhisper(kwargs['scHandlerID'], kwargs['clientID'])
+		return TS3Functions.isReceivingWhisper(kwargs['scHandlerID'], kwargs['clientID'])
 
 	def getAvatar(self, **kwargs):
 		# TS3Functions.getAvatar(scHandlerID, clientID, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getAvatar(kwargs['scHandlerID'], kwargs['clientID'], kwargs['maxLen'])
+		return TS3Functions.getAvatar(kwargs['scHandlerID'], kwargs['clientID'], kwargs['maxLen'])
 
 	def setPluginMenuEnabled(self, **kwargs):
 		# TS3Functions.setPluginMenuEnabled(pluginID, menuID, enabled)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.setPluginMenuEnabled(kwargs['pluginID'], kwargs['menuID'], kwargs['enabled'])
+		return TS3Functions.setPluginMenuEnabled(kwargs['pluginID'], kwargs['menuID'], kwargs['enabled'])
 
 	def showHotkeySetup(self, **kwargs):
 		# TS3Functions.showHotkeySetup()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.showHotkeySetup()
+		return TS3Functions.showHotkeySetup()
 
 	def requestHotkeyInputDialog(self, **kwargs):
 		# TS3Functions.requestHotkeyInputDialog(pluginID, keyword)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.requestHotkeyInputDialog(kwargs['pluginID'], kwargs['keyword'])
+		return TS3Functions.requestHotkeyInputDialog(kwargs['pluginID'], kwargs['keyword'])
 
 	def getHotkeyFromKeyword(self, **kwargs):
 		# TS3Functions.getHotkeyFromKeyword(pluginID, keywords, arrayLen, hotkeyBufSize)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getHotkeyFromKeyword(kwargs['pluginID'], kwargs['keywords'], kwargs['arrayLen'], kwargs['hotkeyBufSize'])
+		return TS3Functions.getHotkeyFromKeyword(kwargs['pluginID'], kwargs['keywords'], kwargs['arrayLen'], kwargs['hotkeyBufSize'])
 
 	def getClientDisplayName(self, **kwargs):
 		# TS3Functions.getClientDisplayName(scHandlerID, clientID, maxLen)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientDisplayName(kwargs['scHandlerID'], kwargs['clientID'], kwargs['maxLen'])
+		return TS3Functions.getClientDisplayName(kwargs['scHandlerID'], kwargs['clientID'], kwargs['maxLen'])
 
 	def getBookmarkList(self, **kwargs):
 		# TS3Functions.getBookmarkList()
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getBookmarkList()
+		return TS3Functions.getBookmarkList()
 
 	def getProfileList(self, **kwargs):
 		# TS3Functions.getProfileList(profile)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getProfileList(kwargs['profile'])
+		return TS3Functions.getProfileList(kwargs['profile'])
 
 	def guiConnect(self, **kwargs):
 		# TS3Functions.guiConnect(connectTab, serverLabel, serverAddress, serverPassword, nickname, channel, channelPassword, captureProfile, playbackProfile, hotkeyProfile, soundProfile, userIdentity, oneTimeKey, phoneticName)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.guiConnect(kwargs['connectTab'], kwargs['serverLabel'], kwargs['serverAddress'], kwargs['serverPassword'], kwargs['nickname'], kwargs['channel'], kwargs['channelPassword'], kwargs['captureProfile'], kwargs['playbackProfile'], kwargs['hotkeyProfile'], kwargs['soundProfile'], kwargs['userIdentity'], kwargs['oneTimeKey'], kwargs['phoneticName'])
+		return TS3Functions.guiConnect(kwargs['connectTab'], kwargs['serverLabel'], kwargs['serverAddress'], kwargs['serverPassword'], kwargs['nickname'], kwargs['channel'], kwargs['channelPassword'], kwargs['captureProfile'], kwargs['playbackProfile'], kwargs['hotkeyProfile'], kwargs['soundProfile'], kwargs['userIdentity'], kwargs['oneTimeKey'], kwargs['phoneticName'])
 
 	def guiConnectBookmark(self, **kwargs):
 		# TS3Functions.guiConnectBookmark(connectTab, bookmarkuuid)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.guiConnectBookmark(kwargs['connectTab'], kwargs['bookmarkuuid'])
+		return TS3Functions.guiConnectBookmark(kwargs['connectTab'], kwargs['bookmarkuuid'])
 
 	def createBookmark(self, **kwargs):
 		# TS3Functions.createBookmark(bookmarkuuid, serverLabel, serverAddress, serverPassword, nickname, channel, channelPassword, captureProfile, playbackProfile, hotkeyProfile, soundProfile, uniqueUserId, oneTimeKey, phoneticName)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.createBookmark(kwargs['bookmarkuuid'], kwargs['serverLabel'], kwargs['serverAddress'], kwargs['serverPassword'], kwargs['nickname'], kwargs['channel'], kwargs['channelPassword'], kwargs['captureProfile'], kwargs['playbackProfile'], kwargs['hotkeyProfile'], kwargs['soundProfile'], kwargs['uniqueUserId'], kwargs['oneTimeKey'], kwargs['phoneticName'])
+		return TS3Functions.createBookmark(kwargs['bookmarkuuid'], kwargs['serverLabel'], kwargs['serverAddress'], kwargs['serverPassword'], kwargs['nickname'], kwargs['channel'], kwargs['channelPassword'], kwargs['captureProfile'], kwargs['playbackProfile'], kwargs['hotkeyProfile'], kwargs['soundProfile'], kwargs['uniqueUserId'], kwargs['oneTimeKey'], kwargs['phoneticName'])
 
 	def getPermissionIDByName(self, **kwargs):
 		# TS3Functions.getPermissionIDByName(serverConnectionHandlerID, permissionName)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getPermissionIDByName(self.get_server_connection_id(**kwargs), kwargs['permissionName'])
+		return TS3Functions.getPermissionIDByName(self.get_server_connection_id(**kwargs), kwargs['permissionName'])
 
 	def getClientNeededPermission(self, **kwargs):
 		# TS3Functions.getClientNeededPermission(serverConnectionHandlerID, permissionName)
 		kwargs = self.to_utf_8(kwargs)
-		TS3Functions.getClientNeededPermission(self.get_server_connection_id(**kwargs), kwargs['permissionName'])
+		return TS3Functions.getClientNeededPermission(self.get_server_connection_id(**kwargs), kwargs['permissionName'])

@@ -630,7 +630,7 @@ class TS3FunctionGenerator:
 		f.write("\tdef %s(self, **kwargs):\n" % (self.function.name))
 		f.write("\t\t# TS3Functions.%s(%s)\n" % (self.function.name, self.python_raw_parameters()))
 		f.write("\t\tkwargs = self.to_utf_8(kwargs)\n")
-		f.write("\t\tTS3Functions.%s(%s)\n" % (self.function.name, self.python_parameters()))
+		f.write("\t\treturn TS3Functions.%s(%s)\n" % (self.function.name, self.python_parameters()))
 
 	def python_parameters(self):
 		out = []
