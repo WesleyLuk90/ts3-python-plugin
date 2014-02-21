@@ -22,7 +22,7 @@ Copy the .so or .dll file to your TeamSpeak 3 plugin directory. Also copy the Py
 ```
 
 ## Using
-Create a new directory in the plugins/python folder with a __init__.py file in it. This file is autoloaded by the plugin. See the provided EchoModule for a more complete example.
+Create a new directory in the plugins/python folder with a \_\_init\_\_.py file in it. This file is autoloaded by the plugin. See the provided EchoModule for a more complete example.
 
 ## Example
 ```
