@@ -40,16 +40,21 @@ void finalizePython(){
 static struct TS3Functions pythonTS3Functions;
 
 void setTS3FunctionPointers(const struct TS3Functions funcs) {
-    pythonTS3Functions = funcs;
+	pythonTS3Functions = funcs;
 }
 
 struct TS3Functions * getTS3FunctionPointers(){
 	return &pythonTS3Functions;
 }
 
+#ifdef _WIN32
+#ifndef snprintf
+#define snprintf sprintf_s
+#endif
+#endif
 void setPythonPath(const char * pluginPath){
 	char buffer[1024];
-	sprintf(buffer, 
+	snprintf(buffer, 1024,
 		"import sys\n"
 		"import os\n"
 		"sys.path.append(os.path.join('%s', 'python'))\n", pluginPath);
