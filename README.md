@@ -9,7 +9,7 @@ For *nix run
 make
 ```
 
-For Windows, open the project in the TS3 Python Plugin. Check your python header include path and the python library incude path.
+For Windows, open the project in the TS3 Python Plugin. Check your python header include path and the python library incude path. Optionally there is a precompiled version in the Release directory.
 
 ## Installing
 Copy the .so or .dll file to your TeamSpeak 3 plugin directory. Also copy the Python folder to your plugin directory. Your path should look like below.
