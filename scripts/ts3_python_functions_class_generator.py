@@ -21,7 +21,7 @@ class Connection:
 
 	# Returns the server connection id if it is specified either by arguments
 	# Or defined on this class
-	def get_server_connection_id(self, serverConnectionHandlerID = None):
+	def get_server_connection_id(self, serverConnectionHandlerID = None, **kwargs):
 		if serverConnectionHandlerID != None:
 			return serverConnectionHandlerID
 		if self.serverConnectionID != None:
