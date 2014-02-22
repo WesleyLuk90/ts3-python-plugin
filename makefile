@@ -1,9 +1,10 @@
 INCLUDES = -Iinclude -I/usr/include/python2.7
-LIBS = -lpython2.7
-
+LIBS = -lpython2.7 -lpthread -ldl -lutil
+LIB_DIRS = 
+\
 CC = g++
-CFLAGS = -c -fPIC -Wall $(INCLUDES)
-LINKFLAGS = -fPIC -Wall -shared $(LIBS)
+CFLAGS = -Xlinker -export-dynamic  -fPIC -Wall -D PYTHON_DYNAMIC_LIB=$(PYTHON_DYNAMIC_LIB)
+
 
 BUILDDIR = build
 SRCDIR = src
@@ -29,13 +30,13 @@ $(OBJDIR):
 	mkdir $(OBJDIR)
 
 $(OBJDIR)/%.o : $(SRCDIR)/%.c $(OBJDIR)
-	$(CC) $(CFLAGS) -o $@ $<
+	$(CC) $(INCLUDES) $(CFLAGS) -c -o $@ $<
 
 $(BUILDDIR):
 	mkdir $(BUILDDIR)
 
 $(OUTPUT): $(BUILDDIR) $(OBJS)
-	$(CC) $(OBJS) $(LINKFLAGS) -o $(OUTPUT)
+	$(CC) $(OBJS) $(LIB_DIRS) $(LIBS) $(CFLAGS) -shared -o $(OUTPUT)
 
 clean:
 	rm -rf $(BUILDDIR)

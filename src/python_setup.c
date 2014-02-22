@@ -3,8 +3,17 @@
 #include "ts3_functions_interface.h"
 #include <stdio.h>
 #include <Python.h>
+
+#ifdef __linux__
+#include <dlfcn.h>
+#endif
+
 PyThreadState* st;
 void initializePython(const char * pluginPath){
+
+	#ifdef __linux__
+	dlopen("libpython2.7.so", RTLD_GLOBAL|RTLD_LAZY);
+	#endif
 
 	printf("Initializing python\n");
 	Py_Initialize();
