@@ -1,6 +1,7 @@
 import TS3Module
 import TS3Functions
 from callback import ClientEventHandler
+from constants import *
 
 import sys
 import traceback
