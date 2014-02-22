@@ -3,7 +3,7 @@ LIBS = -lpython2.7 -lpthread -ldl -lutil
 LIB_DIRS = 
 \
 CC = g++
-CFLAGS = -Xlinker -export-dynamic  -fPIC -Wall -D PYTHON_DYNAMIC_LIB=$(PYTHON_DYNAMIC_LIB)
+CFLAGS = -Xlinker -export-dynamic  -fPIC -Wall
 
 
 BUILDDIR = build
