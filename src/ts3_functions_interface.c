@@ -23,7 +23,6 @@ static PyObject * ts3func_getClientLibVersion(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -116,7 +115,6 @@ static PyObject * ts3func_getErrorMessage(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", error);
 	// Clean up
-	functions->freeMemory(error);
 	return returnValue;
 }
 
@@ -320,7 +318,6 @@ static PyObject * ts3func_getDefaultPlayBackMode(PyObject *self, PyObject *args)
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -370,7 +367,6 @@ static PyObject * ts3func_getDefaultCaptureMode(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -447,7 +443,6 @@ static PyObject * ts3func_getCurrentPlaybackDeviceName(PyObject *self, PyObject 
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("si", result, isDefault);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -473,7 +468,6 @@ static PyObject * ts3func_getCurrentPlayBackMode(PyObject *self, PyObject *args)
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -500,7 +494,6 @@ static PyObject * ts3func_getCurrentCaptureDeviceName(PyObject *self, PyObject *
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("si", result, isDefault);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -526,7 +519,6 @@ static PyObject * ts3func_getCurrentCaptureMode(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -909,7 +901,6 @@ static PyObject * ts3func_getPreProcessorConfigValue(PyObject *self, PyObject *a
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -961,7 +952,6 @@ static PyObject * ts3func_getEncodeConfigValue(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2114,7 +2104,7 @@ static PyObject * ts3func_getClientSelfVariableAsInt(PyObject *self, PyObject *a
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Li", &serverConnectionHandlerID, &flag)){
+	if(!PyArg_ParseTuple(args, "Ll", &serverConnectionHandlerID, &flag)){
 		printf("Failed to parse args for function getClientSelfVariableAsInt");
 		return NULL;
 	}
@@ -2140,7 +2130,7 @@ static PyObject * ts3func_getClientSelfVariableAsString(PyObject *self, PyObject
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Li", &serverConnectionHandlerID, &flag)){
+	if(!PyArg_ParseTuple(args, "Ll", &serverConnectionHandlerID, &flag)){
 		printf("Failed to parse args for function getClientSelfVariableAsString");
 		return NULL;
 	}
@@ -2156,7 +2146,6 @@ static PyObject * ts3func_getClientSelfVariableAsString(PyObject *self, PyObject
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2168,7 +2157,7 @@ static PyObject * ts3func_setClientSelfVariableAsInt(PyObject *self, PyObject *a
 	int value;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lii", &serverConnectionHandlerID, &flag, &value)){
+	if(!PyArg_ParseTuple(args, "Lli", &serverConnectionHandlerID, &flag, &value)){
 		printf("Failed to parse args for function setClientSelfVariableAsInt");
 		return NULL;
 	}
@@ -2193,7 +2182,7 @@ static PyObject * ts3func_setClientSelfVariableAsString(PyObject *self, PyObject
 	const char* value;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lis", &serverConnectionHandlerID, &flag, &value)){
+	if(!PyArg_ParseTuple(args, "Lls", &serverConnectionHandlerID, &flag, &value)){
 		printf("Failed to parse args for function setClientSelfVariableAsString");
 		return NULL;
 	}
@@ -2242,7 +2231,7 @@ static PyObject * ts3func_getClientVariableAsInt(PyObject *self, PyObject *args)
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getClientVariableAsInt");
 		return NULL;
 	}
@@ -2269,7 +2258,7 @@ static PyObject * ts3func_getClientVariableAsUInt64(PyObject *self, PyObject *ar
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getClientVariableAsUInt64");
 		return NULL;
 	}
@@ -2296,7 +2285,7 @@ static PyObject * ts3func_getClientVariableAsString(PyObject *self, PyObject *ar
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getClientVariableAsString");
 		return NULL;
 	}
@@ -2312,7 +2301,6 @@ static PyObject * ts3func_getClientVariableAsString(PyObject *self, PyObject *ar
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2382,7 +2370,7 @@ static PyObject * ts3func_getChannelVariableAsInt(PyObject *self, PyObject *args
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLi", &serverConnectionHandlerID, &channelID, &flag)){
+	if(!PyArg_ParseTuple(args, "LLl", &serverConnectionHandlerID, &channelID, &flag)){
 		printf("Failed to parse args for function getChannelVariableAsInt");
 		return NULL;
 	}
@@ -2409,7 +2397,7 @@ static PyObject * ts3func_getChannelVariableAsUInt64(PyObject *self, PyObject *a
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLi", &serverConnectionHandlerID, &channelID, &flag)){
+	if(!PyArg_ParseTuple(args, "LLl", &serverConnectionHandlerID, &channelID, &flag)){
 		printf("Failed to parse args for function getChannelVariableAsUInt64");
 		return NULL;
 	}
@@ -2436,7 +2424,7 @@ static PyObject * ts3func_getChannelVariableAsString(PyObject *self, PyObject *a
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLi", &serverConnectionHandlerID, &channelID, &flag)){
+	if(!PyArg_ParseTuple(args, "LLl", &serverConnectionHandlerID, &channelID, &flag)){
 		printf("Failed to parse args for function getChannelVariableAsString");
 		return NULL;
 	}
@@ -2452,7 +2440,6 @@ static PyObject * ts3func_getChannelVariableAsString(PyObject *self, PyObject *a
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2479,7 +2466,6 @@ static PyObject * ts3func_getChannelIDFromChannelNames(PyObject *self, PyObject 
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("sL", channelNameArray, result);
 	// Clean up
-	functions->freeMemory(channelNameArray);
 	return returnValue;
 }
 
@@ -2492,7 +2478,7 @@ static PyObject * ts3func_setChannelVariableAsInt(PyObject *self, PyObject *args
 	int value;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLii", &serverConnectionHandlerID, &channelID, &flag, &value)){
+	if(!PyArg_ParseTuple(args, "LLli", &serverConnectionHandlerID, &channelID, &flag, &value)){
 		printf("Failed to parse args for function setChannelVariableAsInt");
 		return NULL;
 	}
@@ -2518,7 +2504,7 @@ static PyObject * ts3func_setChannelVariableAsUInt64(PyObject *self, PyObject *a
 	uint64 value;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLiL", &serverConnectionHandlerID, &channelID, &flag, &value)){
+	if(!PyArg_ParseTuple(args, "LLlL", &serverConnectionHandlerID, &channelID, &flag, &value)){
 		printf("Failed to parse args for function setChannelVariableAsUInt64");
 		return NULL;
 	}
@@ -2544,7 +2530,7 @@ static PyObject * ts3func_setChannelVariableAsString(PyObject *self, PyObject *a
 	const char* value;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "LLis", &serverConnectionHandlerID, &channelID, &flag, &value)){
+	if(!PyArg_ParseTuple(args, "LLls", &serverConnectionHandlerID, &channelID, &flag, &value)){
 		printf("Failed to parse args for function setChannelVariableAsString");
 		return NULL;
 	}
@@ -2735,7 +2721,7 @@ static PyObject * ts3func_getServerVariableAsInt(PyObject *self, PyObject *args)
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Li", &serverConnectionHandlerID, &flag)){
+	if(!PyArg_ParseTuple(args, "Ll", &serverConnectionHandlerID, &flag)){
 		printf("Failed to parse args for function getServerVariableAsInt");
 		return NULL;
 	}
@@ -2761,7 +2747,7 @@ static PyObject * ts3func_getServerVariableAsUInt64(PyObject *self, PyObject *ar
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Li", &serverConnectionHandlerID, &flag)){
+	if(!PyArg_ParseTuple(args, "Ll", &serverConnectionHandlerID, &flag)){
 		printf("Failed to parse args for function getServerVariableAsUInt64");
 		return NULL;
 	}
@@ -2787,7 +2773,7 @@ static PyObject * ts3func_getServerVariableAsString(PyObject *self, PyObject *ar
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Li", &serverConnectionHandlerID, &flag)){
+	if(!PyArg_ParseTuple(args, "Ll", &serverConnectionHandlerID, &flag)){
 		printf("Failed to parse args for function getServerVariableAsString");
 		return NULL;
 	}
@@ -2803,7 +2789,6 @@ static PyObject * ts3func_getServerVariableAsString(PyObject *self, PyObject *ar
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2863,7 +2848,7 @@ static PyObject * ts3func_getConnectionVariableAsUInt64(PyObject *self, PyObject
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getConnectionVariableAsUInt64");
 		return NULL;
 	}
@@ -2890,7 +2875,7 @@ static PyObject * ts3func_getConnectionVariableAsDouble(PyObject *self, PyObject
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getConnectionVariableAsDouble");
 		return NULL;
 	}
@@ -2917,7 +2902,7 @@ static PyObject * ts3func_getConnectionVariableAsString(PyObject *self, PyObject
 	size_t flag;
 	// Parse Tuple Call
 	
-	if(!PyArg_ParseTuple(args, "Lhi", &serverConnectionHandlerID, &clientID, &flag)){
+	if(!PyArg_ParseTuple(args, "Lhl", &serverConnectionHandlerID, &clientID, &flag)){
 		printf("Failed to parse args for function getConnectionVariableAsString");
 		return NULL;
 	}
@@ -2933,7 +2918,6 @@ static PyObject * ts3func_getConnectionVariableAsString(PyObject *self, PyObject
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -3161,7 +3145,6 @@ static PyObject * ts3func_getTransferFileName(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -3187,7 +3170,6 @@ static PyObject * ts3func_getTransferFilePath(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
-	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -5610,7 +5592,7 @@ static PyObject * ts3func_clientPropertyStringToFlag(PyObject *self, PyObject *a
 		return NULL;
 	}
 	// Build return value
-	PyObject * returnValue = Py_BuildValue("i", resultFlag);
+	PyObject * returnValue = Py_BuildValue("l", resultFlag);
 	// Clean up
 	return returnValue;
 }
@@ -5635,7 +5617,7 @@ static PyObject * ts3func_channelPropertyStringToFlag(PyObject *self, PyObject *
 		return NULL;
 	}
 	// Build return value
-	PyObject * returnValue = Py_BuildValue("i", resultFlag);
+	PyObject * returnValue = Py_BuildValue("l", resultFlag);
 	// Clean up
 	return returnValue;
 }
@@ -5660,7 +5642,7 @@ static PyObject * ts3func_serverPropertyStringToFlag(PyObject *self, PyObject *a
 		return NULL;
 	}
 	// Build return value
-	PyObject * returnValue = Py_BuildValue("i", resultFlag);
+	PyObject * returnValue = Py_BuildValue("l", resultFlag);
 	// Clean up
 	return returnValue;
 }

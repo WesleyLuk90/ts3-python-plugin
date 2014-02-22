@@ -4,7 +4,7 @@ from CCodeWriter import CCodeWriter
 VARIABLE_INPUT_TYPE_STRING = {
 	"unsigned int": 'i',
 	"int": 'i',
-	"size_t": 'i',
+	"size_t": 'l',
 	"uint64": 'L',
 	"const int*": 'O',
 	"const char*": 's',
@@ -27,7 +27,7 @@ VARIABLE_OUTPUT_TYPE_STRING = {
 	# output types, O means we should specially handle it
 	"int*": 'i',
 	"char*": 's',
-	"size_t*": 'i',
+	"size_t*": 'l',
 	"short*": 'j',
 	"unsigned int*": 'i',
 	"unsigned short*": 'j',
