@@ -6,8 +6,8 @@ class Connection:
 
 	serverConnectionID = None
 
-	def __init__(self):
-		pass
+	def __init__(self, serverConnectionID = None):
+		self.serverConnectionID = serverConnectionID
 
 	def set_server_connection_id(self, id):
 		self.serverConnectionID = id
