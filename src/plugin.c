@@ -110,7 +110,6 @@ void doInitializePython(){
 			pythonInitialized = true;
 			printf("Starting to initialize python\n");
 			initializePython(pluginPath);
-			ts3Functions.printMessageToCurrentTab("Hello world");
 		}
 	}
 }
