@@ -72,6 +72,13 @@ class Channel:
 			force = False,
 			returnCode = returnCode)
 
+	def move_to_channel(self, password = "", returnCode = ""):
+		self.conn.requestClientMove(
+			clientID = Client.get_self(self.conn).client_id,
+			newChannelID = self.channel_id,
+			password = password,
+			returnCode = returnCode)
+
 	def __eq__(self, other):
 		return self.channel_id == other.channel_id
 
