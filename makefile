@@ -12,6 +12,7 @@ OBJDIR = objs
 
 OUTPUT_FILE = libpython_plugin.so
 INSTALL_DIR = ../ts3client/plugins
+AFTER_INSTALL = 
 
 PYTHON_FOLDER = python
 
@@ -20,6 +21,8 @@ OUTPUT = $(BUILDDIR)/$(OUTPUT_FILE)
 
 SRCS:=$(shell find $(SRCDIR) -iname *.c)
 OBJS = $(patsubst $(SRCDIR)/%.c,$(OBJDIR)/%.o,$(SRCS)) 
+
+include makefile.override
 
 all: $(OUTPUT)
 
@@ -43,9 +46,12 @@ clean:
 	rm -rf $(OBJDIR)
 
 install: install_scripts install_plugin
+	$(AFTER_INSTALL)
 
 install_scripts:
 	cp -r $(PYTHON_FOLDER) $(INSTALL_DIR)
 
 install_plugin:
 	cp $(OUTPUT) $(INSTALL_DIR)
+
+makefile.override:

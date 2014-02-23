@@ -80,9 +80,9 @@ class CodecEncryptionMode:
 
 class TextMessageTargetMode:
 	TextMessageTarget_CLIENT = 1
-	TextMessageTarget_CHANNEL = 1
-	TextMessageTarget_SERVER = 2
-	TextMessageTarget_MAX = 3
+	TextMessageTarget_CHANNEL = 2
+	TextMessageTarget_SERVER = 3
+	TextMessageTarget_MAX = 4
 
 
 class MuteInputStatus:

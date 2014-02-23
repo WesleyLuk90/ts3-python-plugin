@@ -222,3 +222,4 @@ objs/
 !TS3 Python Plugin/Release/
 TS3 Python Plugin/Release/*
 !TS3 Python Plugin/Release/TS3 Python Plugin.dll
+makefile.override

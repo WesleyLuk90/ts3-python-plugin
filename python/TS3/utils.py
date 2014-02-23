@@ -94,9 +94,19 @@ class Client:
 			clients.append(Client(conn, client_id))
 		return clients
 
+	@classmethod
+	def get_self(cls, conn):
+		return Client(conn, conn.getClientID())
+
 	def __init__(self, conn, client_id):
 		self.conn = conn
 		self.client_id = client_id
+
+	def get_name(self, returnCode = ""):
+		return self.conn.getClientVariableAsString(
+			clientID = self.client_id,
+			flag = constants.ClientProperties.CLIENT_NICKNAME,
+			returnCode = returnCode)
 
 	def send_private_message(self, message, returnCode = ""):
 		self.conn.requestSendPrivateTextMsg(
@@ -114,3 +124,6 @@ class Client:
 		self.conn.requestClientDBIDfromUID(
 			clientUniqueIdentifier = self.get_unique_identifier(),
 			returnCode = returnCode)
+
+	def get_channel(self):
+		return Channel(self.conn, self.conn.getChannelOfClient(clientID = self.client_id))

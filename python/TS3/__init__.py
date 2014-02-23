@@ -59,16 +59,18 @@ class _CustomWriter:
 
 	def __init__(self, base):
 		self.base = base
+		self.buffer = ""
 
 	def write(self, s):
 		try:
 			self.base.write(s)
-			s = s.rstrip(string.whitespace)
 			if type(s) is unicode:
 				s = s.encode('utf-8', 'replace')
-			if s == "":
-				return
-			TS3Functions.printMessageToCurrentTab(s)
+			self.buffer += s
+			chunks = self.buffer.split("\n")
+			for chunk in chunks[0:-1]:
+				TS3Functions.printMessageToCurrentTab(chunk)
+			self.buffer = chunks[-1]
 		except:
 			pass # Ignore all errors so that we don't get stuck in a loop
 
