@@ -13,7 +13,8 @@ from functions import Connection
 # Connection To call TS3 functions
 # ClientEventHandler To listen for client events
 # register_callback_handler To register a ClientEventHandler
-
+# Conn is the default connection
+Conn = Connection()
 
 _callback_handlers = []
 

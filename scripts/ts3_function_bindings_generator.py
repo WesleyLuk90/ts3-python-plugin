@@ -86,6 +86,15 @@ VARIABLE_IN_OUT = {
 	
 }
 
+PY_CONVERSION_FUNCTIONS = {
+	'const int*' : 'PyInt_AsLong',
+	'const unsigned int*' : 'PyInt_AsLong',
+	'const anyID*' : 'PyInt_AsLong',
+	'const short*' : 'PyInt_AsLong',
+	'const uint64*' : 'PyInt_AsUnsignedLongLongMask',
+	'const char**' : 'PyString_AsString',
+}
+
 IGNORED_FUNCTIONS = {
 	"freeMemory": True,
 	"requestHotkeyInputDialog": True,
@@ -244,10 +253,10 @@ class ArrayInputParameterHandler(DefaultParameterHandler):
 		w.write_line("PyObject* %s;" % (self.name))
 
 	def before_call(self, w):
-		w.write_line('%s %s_c_array = new %s[PyObject_Length(%s)];' % (self.type, self.name, self.parameter.array_declaration_type(), self.name))
+		w.write_line('%s %s_c_array = new %s[PyObject_Length(%s)];' % (self.parameter.array_declaration_type() + "*", self.name, self.parameter.array_declaration_type(), self.name))
 		w.write("""
 			{
-				PyObject *iterator = PyObject_GetIter(%s);
+				PyObject *iterator = PyObject_GetIter(%(name)s);
 				PyObject *item = NULL;
 				#define CLEANUP() do{ \\
 				Py_XDECREF(iterator); \\
@@ -258,13 +267,14 @@ class ArrayInputParameterHandler(DefaultParameterHandler):
 
 				if (iterator == NULL) {
 				/* propagate error */
-				delete[] %s_c_array;
+				delete[] %(name)s_c_array;
 				CLEANUP();
 				return NULL;
 				}
 				while ((item = PyIter_Next(iterator)) != NULL) {
-				if(!PyArg_ParseTuple(item, "%t", &%s_c_array[i])){
-				delete[] %s_c_array;
+				%(name)s_c_array[i] = %(func)s(item);
+				if(PyErr_Occurred()){
+				delete[] %(name)s_c_array;
 				CLEANUP();
 				return NULL;
 				}
@@ -272,14 +282,14 @@ class ArrayInputParameterHandler(DefaultParameterHandler):
 				Py_DECREF(item);
 				}
 				if (PyErr_Occurred()) {
-				delete[] %s_c_array;
+				delete[] %(name)s_c_array;
 				CLEANUP();
 				return NULL;
 				}
 				CLEANUP();
 				#undef CLEANUP
 			}
-			""".replace("%s", self.name).replace("%t", self.type_string))
+			""" % {'name': self.name, 'func' : PY_CONVERSION_FUNCTIONS[self.type]})
 
 	def function_call(self):
 		return "%s_c_array" % (self.name)
@@ -630,7 +640,7 @@ class TS3FunctionGenerator:
 		f.write("\tdef %s(self, **kwargs):\n" % (self.function.name))
 		f.write("\t\t# TS3Functions.%s(%s)\n" % (self.function.name, self.python_raw_parameters()))
 		f.write("\t\tkwargs = self.to_utf_8(kwargs)\n")
-		f.write("\t\treturn TS3Functions.%s(%s)\n" % (self.function.name, self.python_parameters()))
+		f.write("\t\treturn self.from_utf_8(TS3Functions.%s(%s))\n" % (self.function.name, self.python_parameters()))
 
 	def python_parameters(self):
 		out = []

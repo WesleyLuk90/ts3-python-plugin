@@ -23,6 +23,7 @@ static PyObject * ts3func_getClientLibVersion(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -115,6 +116,7 @@ static PyObject * ts3func_getErrorMessage(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", error);
 	// Clean up
+	functions->freeMemory(error);
 	return returnValue;
 }
 
@@ -318,6 +320,7 @@ static PyObject * ts3func_getDefaultPlayBackMode(PyObject *self, PyObject *args)
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -367,6 +370,7 @@ static PyObject * ts3func_getDefaultCaptureMode(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -443,6 +447,7 @@ static PyObject * ts3func_getCurrentPlaybackDeviceName(PyObject *self, PyObject 
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("si", result, isDefault);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -468,6 +473,7 @@ static PyObject * ts3func_getCurrentPlayBackMode(PyObject *self, PyObject *args)
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -494,6 +500,7 @@ static PyObject * ts3func_getCurrentCaptureDeviceName(PyObject *self, PyObject *
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("si", result, isDefault);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -519,6 +526,7 @@ static PyObject * ts3func_getCurrentCaptureMode(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -779,7 +787,7 @@ static PyObject * ts3func_processCustomCaptureData(PyObject *self, PyObject *arg
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const short* buffer_c_array = new short[PyObject_Length(buffer)];
+	short* buffer_c_array = new short[PyObject_Length(buffer)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(buffer);
@@ -798,7 +806,8 @@ static PyObject * ts3func_processCustomCaptureData(PyObject *self, PyObject *arg
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "h", &buffer_c_array[i])){
+			buffer_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] buffer_c_array;
 				CLEANUP();
 				return NULL;
@@ -901,6 +910,7 @@ static PyObject * ts3func_getPreProcessorConfigValue(PyObject *self, PyObject *a
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -952,6 +962,7 @@ static PyObject * ts3func_getEncodeConfigValue(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -1492,7 +1503,7 @@ static PyObject * ts3func_requestClientSetWhisperList(PyObject *self, PyObject *
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const uint64* targetChannelIDArray_c_array = new uint64[PyObject_Length(targetChannelIDArray)];
+	uint64* targetChannelIDArray_c_array = new uint64[PyObject_Length(targetChannelIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(targetChannelIDArray);
@@ -1511,7 +1522,8 @@ static PyObject * ts3func_requestClientSetWhisperList(PyObject *self, PyObject *
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &targetChannelIDArray_c_array[i])){
+			targetChannelIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] targetChannelIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -1527,7 +1539,7 @@ static PyObject * ts3func_requestClientSetWhisperList(PyObject *self, PyObject *
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const anyID* targetClientIDArray_c_array = new anyID[PyObject_Length(targetClientIDArray)];
+		anyID* targetClientIDArray_c_array = new anyID[PyObject_Length(targetClientIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(targetClientIDArray);
@@ -1546,7 +1558,8 @@ static PyObject * ts3func_requestClientSetWhisperList(PyObject *self, PyObject *
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "h", &targetClientIDArray_c_array[i])){
+			targetClientIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] targetClientIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -1589,7 +1602,7 @@ static PyObject * ts3func_requestChannelSubscribe(PyObject *self, PyObject *args
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
+	uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(channelIDArray);
@@ -1608,7 +1621,8 @@ static PyObject * ts3func_requestChannelSubscribe(PyObject *self, PyObject *args
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &channelIDArray_c_array[i])){
+			channelIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] channelIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -1674,7 +1688,7 @@ static PyObject * ts3func_requestChannelUnsubscribe(PyObject *self, PyObject *ar
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
+	uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(channelIDArray);
@@ -1693,7 +1707,8 @@ static PyObject * ts3func_requestChannelUnsubscribe(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &channelIDArray_c_array[i])){
+			channelIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] channelIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -1784,7 +1799,7 @@ static PyObject * ts3func_requestMuteClients(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const anyID* clientIDArray_c_array = new anyID[PyObject_Length(clientIDArray)];
+	anyID* clientIDArray_c_array = new anyID[PyObject_Length(clientIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(clientIDArray);
@@ -1803,7 +1818,8 @@ static PyObject * ts3func_requestMuteClients(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "h", &clientIDArray_c_array[i])){
+			clientIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] clientIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -1845,7 +1861,7 @@ static PyObject * ts3func_requestUnmuteClients(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const anyID* clientIDArray_c_array = new anyID[PyObject_Length(clientIDArray)];
+	anyID* clientIDArray_c_array = new anyID[PyObject_Length(clientIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(clientIDArray);
@@ -1864,7 +1880,8 @@ static PyObject * ts3func_requestUnmuteClients(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "h", &clientIDArray_c_array[i])){
+			clientIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] clientIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -2146,6 +2163,7 @@ static PyObject * ts3func_getClientSelfVariableAsString(PyObject *self, PyObject
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2301,6 +2319,7 @@ static PyObject * ts3func_getClientVariableAsString(PyObject *self, PyObject *ar
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2440,6 +2459,7 @@ static PyObject * ts3func_getChannelVariableAsString(PyObject *self, PyObject *a
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2466,6 +2486,7 @@ static PyObject * ts3func_getChannelIDFromChannelNames(PyObject *self, PyObject 
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("sL", channelNameArray, result);
 	// Clean up
+	functions->freeMemory(channelNameArray);
 	return returnValue;
 }
 
@@ -2789,6 +2810,7 @@ static PyObject * ts3func_getServerVariableAsString(PyObject *self, PyObject *ar
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -2918,6 +2940,7 @@ static PyObject * ts3func_getConnectionVariableAsString(PyObject *self, PyObject
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -3145,6 +3168,7 @@ static PyObject * ts3func_getTransferFileName(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -3170,6 +3194,7 @@ static PyObject * ts3func_getTransferFilePath(PyObject *self, PyObject *args){
 	// Build return value
 	PyObject * returnValue = Py_BuildValue("s", result);
 	// Clean up
+	functions->freeMemory(result);
 	return returnValue;
 }
 
@@ -3527,7 +3552,8 @@ static PyObject * ts3func_requestDeleteFile(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "s", &file_c_array[i])){
+			file_c_array[i] = PyString_AsString(item);
+			if(PyErr_Occurred()){
 				delete[] file_c_array;
 				CLEANUP();
 				return NULL;
@@ -4221,7 +4247,7 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -4240,7 +4266,8 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4256,7 +4283,7 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
+		int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionValueArray);
@@ -4275,7 +4302,8 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionValueArray_c_array[i])){
+			permissionValueArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionValueArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4291,7 +4319,7 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionNegatedArray_c_array = new int[PyObject_Length(permissionNegatedArray)];
+		int* permissionNegatedArray_c_array = new int[PyObject_Length(permissionNegatedArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionNegatedArray);
@@ -4310,7 +4338,8 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionNegatedArray_c_array[i])){
+			permissionNegatedArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionNegatedArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4326,7 +4355,7 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionSkipArray_c_array = new int[PyObject_Length(permissionSkipArray)];
+		int* permissionSkipArray_c_array = new int[PyObject_Length(permissionSkipArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionSkipArray);
@@ -4345,7 +4374,8 @@ static PyObject * ts3func_requestServerGroupAddPerm(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionSkipArray_c_array[i])){
+			permissionSkipArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionSkipArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4393,7 +4423,7 @@ static PyObject * ts3func_requestServerGroupDelPerm(PyObject *self, PyObject *ar
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -4412,7 +4442,8 @@ static PyObject * ts3func_requestServerGroupDelPerm(PyObject *self, PyObject *ar
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4585,7 +4616,7 @@ static PyObject * ts3func_requestChannelGroupAddPerm(PyObject *self, PyObject *a
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -4604,7 +4635,8 @@ static PyObject * ts3func_requestChannelGroupAddPerm(PyObject *self, PyObject *a
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4620,7 +4652,7 @@ static PyObject * ts3func_requestChannelGroupAddPerm(PyObject *self, PyObject *a
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
+		int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionValueArray);
@@ -4639,7 +4671,8 @@ static PyObject * ts3func_requestChannelGroupAddPerm(PyObject *self, PyObject *a
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionValueArray_c_array[i])){
+			permissionValueArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionValueArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4685,7 +4718,7 @@ static PyObject * ts3func_requestChannelGroupDelPerm(PyObject *self, PyObject *a
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -4704,7 +4737,8 @@ static PyObject * ts3func_requestChannelGroupDelPerm(PyObject *self, PyObject *a
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4774,7 +4808,7 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const uint64* channelGroupIDArray_c_array = new uint64[PyObject_Length(channelGroupIDArray)];
+	uint64* channelGroupIDArray_c_array = new uint64[PyObject_Length(channelGroupIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(channelGroupIDArray);
@@ -4793,7 +4827,8 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &channelGroupIDArray_c_array[i])){
+			channelGroupIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] channelGroupIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4809,7 +4844,7 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
+		uint64* channelIDArray_c_array = new uint64[PyObject_Length(channelIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(channelIDArray);
@@ -4828,7 +4863,8 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &channelIDArray_c_array[i])){
+			channelIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] channelIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4844,7 +4880,7 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const uint64* clientDatabaseIDArray_c_array = new uint64[PyObject_Length(clientDatabaseIDArray)];
+		uint64* clientDatabaseIDArray_c_array = new uint64[PyObject_Length(clientDatabaseIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(clientDatabaseIDArray);
@@ -4863,7 +4899,8 @@ static PyObject * ts3func_requestSetClientChannelGroup(PyObject *self, PyObject 
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "L", &clientDatabaseIDArray_c_array[i])){
+			clientDatabaseIDArray_c_array[i] = PyInt_AsUnsignedLongLongMask(item);
+			if(PyErr_Occurred()){
 				delete[] clientDatabaseIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4910,7 +4947,7 @@ static PyObject * ts3func_requestChannelAddPerm(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -4929,7 +4966,8 @@ static PyObject * ts3func_requestChannelAddPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -4945,7 +4983,7 @@ static PyObject * ts3func_requestChannelAddPerm(PyObject *self, PyObject *args){
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
+		int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionValueArray);
@@ -4964,7 +5002,8 @@ static PyObject * ts3func_requestChannelAddPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionValueArray_c_array[i])){
+			permissionValueArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionValueArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5009,7 +5048,7 @@ static PyObject * ts3func_requestChannelDelPerm(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -5028,7 +5067,8 @@ static PyObject * ts3func_requestChannelDelPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5099,7 +5139,7 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -5118,7 +5158,8 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5134,7 +5175,7 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
+		int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionValueArray);
@@ -5153,7 +5194,8 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionValueArray_c_array[i])){
+			permissionValueArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionValueArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5169,7 +5211,7 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionSkipArray_c_array = new int[PyObject_Length(permissionSkipArray)];
+		int* permissionSkipArray_c_array = new int[PyObject_Length(permissionSkipArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionSkipArray);
@@ -5188,7 +5230,8 @@ static PyObject * ts3func_requestClientAddPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionSkipArray_c_array[i])){
+			permissionSkipArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionSkipArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5234,7 +5277,7 @@ static PyObject * ts3func_requestClientDelPerm(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -5253,7 +5296,8 @@ static PyObject * ts3func_requestClientDelPerm(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5324,7 +5368,7 @@ static PyObject * ts3func_requestChannelClientAddPerm(PyObject *self, PyObject *
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -5343,7 +5387,8 @@ static PyObject * ts3func_requestChannelClientAddPerm(PyObject *self, PyObject *
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5359,7 +5404,7 @@ static PyObject * ts3func_requestChannelClientAddPerm(PyObject *self, PyObject *
 		CLEANUP();
 		#undef CLEANUP
 	}
-		const int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
+		int* permissionValueArray_c_array = new int[PyObject_Length(permissionValueArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionValueArray);
@@ -5378,7 +5423,8 @@ static PyObject * ts3func_requestChannelClientAddPerm(PyObject *self, PyObject *
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionValueArray_c_array[i])){
+			permissionValueArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionValueArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5424,7 +5470,7 @@ static PyObject * ts3func_requestChannelClientDelPerm(PyObject *self, PyObject *
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
+	unsigned int* permissionIDArray_c_array = new unsigned int[PyObject_Length(permissionIDArray)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(permissionIDArray);
@@ -5443,7 +5489,8 @@ static PyObject * ts3func_requestChannelClientDelPerm(PyObject *self, PyObject *
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "i", &permissionIDArray_c_array[i])){
+			permissionIDArray_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] permissionIDArray_c_array;
 				CLEANUP();
 				return NULL;
@@ -5807,7 +5854,7 @@ static PyObject * ts3func_sendPluginCommand(PyObject *self, PyObject *args){
 	}
 	struct TS3Functions * functions = getTS3FunctionPointers();
 	// Before Function Call
-	const anyID* targetIDs_c_array = new anyID[PyObject_Length(targetIDs)];
+	anyID* targetIDs_c_array = new anyID[PyObject_Length(targetIDs)];
 	
 	{
 		PyObject *iterator = PyObject_GetIter(targetIDs);
@@ -5826,7 +5873,8 @@ static PyObject * ts3func_sendPluginCommand(PyObject *self, PyObject *args){
 			return NULL;
 		}
 		while ((item = PyIter_Next(iterator)) != NULL) {
-			if(!PyArg_ParseTuple(item, "h", &targetIDs_c_array[i])){
+			targetIDs_c_array[i] = PyInt_AsLong(item);
+			if(PyErr_Occurred()){
 				delete[] targetIDs_c_array;
 				CLEANUP();
 				return NULL;

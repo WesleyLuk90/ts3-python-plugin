@@ -39,9 +39,16 @@ class Channel:
 		return clients
 
 	def get_parent(self):
-		return Channel(self.conn.getParentChannelOfChannel(
+		return Channel(self.conn, self.conn.getParentChannelOfChannel(
 			channelID = self.channel_id
 			))
+
+	def get_children(self):
+		children = []
+		for channel in Channel.get_all_channels(self.conn):
+			if channel.get_parent() == self:
+				children.append(channel)
+		return children
 
 	def get_name(self):
 		return self.conn.getChannelVariableAsString(
@@ -49,7 +56,7 @@ class Channel:
 			flag = constants.ChannelProperties.CHANNEL_NAME)
 
 	def set_name(self, name):
-		conn.setChannelVariableAsString(
+		self.conn.setChannelVariableAsString(
 			channelID = self.channel_id,
 			flag = constants.ChannelProperties.CHANNEL_NAME,
 			value = name)
@@ -59,12 +66,33 @@ class Channel:
 			channelID = self.channel_id,
 			returnCode = returnCode)
 
+	def delete(self, returnCode = ""):
+		self.conn.requestChannelDelete(
+			channelID = self.channel_id,
+			force = False,
+			returnCode = returnCode)
+
+	def __eq__(self, other):
+		return self.channel_id == other.channel_id
+
+	def __ne__(self, other):
+		return not (self.channel_id == other.channel_id)
+
+	def set_client_channel_group(self, group, dbid, returnCode = ""):
+		self.conn.requestSetClientChannelGroup(
+			channelGroupIDArray = [group],
+			channelIDArray = [self.channel_id],
+			clientDatabaseIDArray = [dbid],
+			arraySize = 1,
+			returnCode = returnCode)
+
 class Client:
 	@classmethod
 	def get_all_clients(cls, conn):
 		clients = []
 		for client_id in conn.getClientList():
 			clients.append(Client(conn, client_id))
+		return clients
 
 	def __init__(self, conn, client_id):
 		self.conn = conn
@@ -74,4 +102,15 @@ class Client:
 		self.conn.requestSendPrivateTextMsg(
 			message = message,
 			targetClientID = self.client_id,
+			returnCode = returnCode)
+
+	def get_unique_identifier(self, returnCode = ""):
+		return self.conn.getClientVariableAsString(
+			clientID = self.client_id,
+			flag = constants.ClientProperties.CLIENT_UNIQUE_IDENTIFIER,
+			returnCode = returnCode)
+
+	def request_dbid(self, returnCode = ""):
+		self.conn.requestClientDBIDfromUID(
+			clientUniqueIdentifier = self.get_unique_identifier(),
 			returnCode = returnCode)

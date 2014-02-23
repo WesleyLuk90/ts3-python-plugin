@@ -34,6 +34,11 @@ class Connection:
 				args[k] = v.encode('utf-8', 'replace')
 		return args
 
+	def from_utf_8(self, value):
+		if type(value) is str:
+			return unicode(value, 'utf-8')
+		return value
+
 		""")
 
 	for function in functions:
